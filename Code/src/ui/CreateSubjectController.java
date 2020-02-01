@@ -3,8 +3,12 @@ package ui;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Region;
 
 public class CreateSubjectController {
 
@@ -33,7 +37,39 @@ public class CreateSubjectController {
 
 	@FXML
 	void done(MouseEvent event) {
+		if (name.getText().equals("") && teacher.getText().equals("") && nrc.getText().equals("")
+				&& credits.getText().equals("")) {
+			Alert alert = new Alert(AlertType.ERROR, "Debe ingresar algún valor", ButtonType.OK);
+			alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+			alert.show();
+		} else {
+			try {
+				int nrcInteger = Integer.parseInt(nrc.getText());
+			} catch (NumberFormatException e) {
+				Alert alert = new Alert(AlertType.ERROR, "El NRC debe ser un número entero", ButtonType.OK);
+				alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+				alert.show();
+			}
+			
+			try {
+				int creditsInteger = Integer.parseInt(credits.getText());
+			} catch (NumberFormatException e) {
+				Alert alert = new Alert(AlertType.ERROR, "El número de creditos de un curso debe ser un número entero", ButtonType.OK);
+				alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+				alert.show();
+			}
+			
+			
+			
+			
 
+			// Literalmente todo lo que falta por hacer de este metodo se debe completar en
+			// este else
+
+			// Aquí se llama al modelo y se crea un objeto tipo materia
+			// Si algún campo está vacío, se tomará el valor como ""
+			//
+		}
 	}
 
 	@FXML
