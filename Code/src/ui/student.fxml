@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="724.0" prefWidth="428.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="724.0" prefWidth="428.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.StudentController">
    <children>
       <Label layoutX="32.0" layoutY="26.0" text="Agenda">
          <font>
@@ -27,11 +27,14 @@
             <Font name="System Bold" size="40.0" />
          </font>
       </Label>
-      <Label layoutX="129.0" layoutY="695.0" text="ESTUDIANTES">
+      <Label layoutX="120.0" layoutY="694.0" text="ESTUDIANTES">
          <font>
-            <Font name="Calibri" size="12.0" />
+            <Font name="Calibri Bold" size="15.0" />
          </font></Label>
-      <Label layoutX="227.0" layoutY="694.0" text="MATERIAS" />
+      <Label layoutX="223.0" layoutY="694.0" text="MATERIAS">
+         <font>
+            <Font name="Calibri" size="15.0" />
+         </font></Label>
       <ImageView fitHeight="47.0" fitWidth="47.0" layoutX="139.0" layoutY="646.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../imgs/contacts.png" />
