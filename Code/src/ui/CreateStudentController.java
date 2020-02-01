@@ -79,30 +79,44 @@ public class CreateStudentController {
 			alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
 			alert.show();
 		} else {
-			try {
-				int telephoneInteger = Integer.parseInt(telephone.getText());
-			} catch (NumberFormatException e) {
-				Alert alert = new Alert(AlertType.ERROR, "El NRC debe ser un número entero", ButtonType.OK);
-				alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
-				alert.show();
+			boolean fine = true;
+
+			if (!telephone.getText().equals("")) {
+				try {
+					int telephoneInteger = Integer.parseInt(telephone.getText());
+					fine = true;
+				} catch (NumberFormatException e) {
+					fine=false;
+					Alert alert = new Alert(AlertType.ERROR, "El NRC debe ser un número entero", ButtonType.OK);
+					alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+					alert.show();
+				}
 			}
 
-			try {
-				int idInteger = Integer.parseInt(id.getText());
-			} catch (NumberFormatException e) {
-				Alert alert = new Alert(AlertType.ERROR, "El número de creditos de un curso debe ser un número entero",
-						ButtonType.OK);
-				alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
-				alert.show();
+			if (!id.getText().equals("")) {
+				try {
+					int idInteger = Integer.parseInt(id.getText());
+					fine = true;
+				} catch (NumberFormatException e) {
+					fine=false;
+					Alert alert = new Alert(AlertType.ERROR,
+							"El número de creditos de un curso debe ser un número entero", ButtonType.OK);
+					alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+					alert.show();
+				}
 			}
 
-			try {
-				int semesterInteger = Integer.parseInt(semester.getText());
-			} catch (NumberFormatException e) {
-				Alert alert = new Alert(AlertType.ERROR, "El número de creditos de un curso debe ser un número entero",
-						ButtonType.OK);
-				alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
-				alert.show();
+			if (!semester.getText().equals("")) {
+				try {
+					int semesterInteger = Integer.parseInt(semester.getText());
+					fine = true;
+				} catch (NumberFormatException e) {
+					fine=false;
+					Alert alert = new Alert(AlertType.ERROR,
+							"El número de creditos de un curso debe ser un número entero", ButtonType.OK);
+					alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+					alert.show();
+				}
 			}
 
 			// Literalmente todo lo que falta por hacer de este metodo se debe completar en
@@ -111,6 +125,13 @@ public class CreateStudentController {
 			// Aquí se llama al modelo y se crea un objeto tipo estudiante
 			// Si algún campo está vacío, se tomará el valor como ""
 			//
+
+			if (fine) {
+				Alert alert = new Alert(AlertType.CONFIRMATION, "Se ha guardado el estudiante con exito",
+						ButtonType.OK);
+				alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+				alert.show();
+			}
 		}
 	}
 

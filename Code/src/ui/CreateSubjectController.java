@@ -43,25 +43,32 @@ public class CreateSubjectController {
 			alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
 			alert.show();
 		} else {
-			try {
-				int nrcInteger = Integer.parseInt(nrc.getText());
-			} catch (NumberFormatException e) {
-				Alert alert = new Alert(AlertType.ERROR, "El NRC debe ser un número entero", ButtonType.OK);
-				alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
-				alert.show();
+			boolean fine = true;
+			
+			if (!nrc.getText().equals("")) {
+				try {
+					int nrcInteger = Integer.parseInt(nrc.getText());
+					fine = true;
+				} catch (NumberFormatException e) {
+					fine = false;
+					Alert alert = new Alert(AlertType.ERROR, "El NRC debe ser un número entero", ButtonType.OK);
+					alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+					alert.show();
+				}
 			}
-			
-			try {
-				int creditsInteger = Integer.parseInt(credits.getText());
-			} catch (NumberFormatException e) {
-				Alert alert = new Alert(AlertType.ERROR, "El número de creditos de un curso debe ser un número entero", ButtonType.OK);
-				alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
-				alert.show();
+
+			if (!credits.getText().equals("")) {
+				try {
+					int creditsInteger = Integer.parseInt(credits.getText());
+					fine = true;
+				} catch (NumberFormatException e) {
+					fine = false;
+					Alert alert = new Alert(AlertType.ERROR,
+							"El número de creditos de un curso debe ser un número entero", ButtonType.OK);
+					alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+					alert.show();
+				}
 			}
-			
-			
-			
-			
 
 			// Literalmente todo lo que falta por hacer de este metodo se debe completar en
 			// este else
@@ -69,6 +76,12 @@ public class CreateSubjectController {
 			// Aquí se llama al modelo y se crea un objeto tipo materia
 			// Si algún campo está vacío, se tomará el valor como ""
 			//
+
+			if (fine) {
+				Alert alert = new Alert(AlertType.CONFIRMATION, "Se ha guardado la materia con exito", ButtonType.OK);
+				alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+				alert.show();
+			}
 		}
 	}
 
