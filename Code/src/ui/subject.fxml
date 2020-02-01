@@ -11,18 +11,18 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="724.0" prefWidth="428.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="32.0" layoutY="26.0" text="Agenda">
+      <Label layoutX="32.0" layoutY="26.0" text="Materias">
          <font>
             <Font name="Calibri Bold" size="24.0" />
          </font>
       </Label>
-      <TextField layoutX="32.0" layoutY="65.0" prefHeight="25.0" prefWidth="336.0" promptText="🔍 Buscar" />
+      <TextField fx:id="search" layoutX="32.0" layoutY="65.0" prefHeight="25.0" prefWidth="336.0" promptText="🔍 Buscar" />
       <ScrollPane layoutX="3.0" layoutY="110.0" prefHeight="536.0" prefWidth="422.0">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="533.0" prefWidth="420.0" />
         </content>
       </ScrollPane>
-      <Label layoutX="368.0" layoutY="11.0" onMouseClicked="#clicable" text="+">
+      <Label layoutX="368.0" layoutY="11.0" onMouseClicked="#createSubject" text="+">
          <font>
             <Font name="System Bold" size="40.0" />
          </font>
@@ -37,7 +37,7 @@
             <Image url="@../../imgs/contacts.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="47.0" fitWidth="47.0" layoutX="231.0" layoutY="646.0" onMouseClicked="#goToTheSubjects" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="47.0" fitWidth="47.0" layoutX="231.0" layoutY="646.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../imgs/subject.png" />
          </image>
