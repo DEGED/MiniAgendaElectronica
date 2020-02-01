@@ -31,11 +31,6 @@ public class CreateSubjectController {
 	private TextField credits;
 
 	@FXML
-	void cancel(MouseEvent event) {
-
-	}
-
-	@FXML
 	void done(MouseEvent event) {
 		if (name.getText().equals("") && teacher.getText().equals("") && nrc.getText().equals("")
 				&& credits.getText().equals("")) {

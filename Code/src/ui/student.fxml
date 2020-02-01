@@ -19,7 +19,14 @@
       <TextField fx:id="search" layoutX="32.0" layoutY="65.0" prefHeight="25.0" prefWidth="336.0" promptText="🔍 Buscar" />
       <ScrollPane layoutX="3.0" layoutY="110.0" prefHeight="536.0" prefWidth="422.0">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="533.0" prefWidth="419.0" />
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="533.0" prefWidth="419.0">
+               <children>
+                  <Label fx:id="students" layoutX="14.0" layoutY="14.0">
+                     <font>
+                        <Font name="Calibri" size="15.0" />
+                     </font>
+                  </Label>
+               </children></AnchorPane>
         </content>
       </ScrollPane>
       <Label layoutX="368.0" layoutY="11.0" onMouseClicked="#addStudent" text="+">

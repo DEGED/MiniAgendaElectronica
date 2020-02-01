@@ -67,11 +67,6 @@ public class CreateStudentController {
 	}
 
 	@FXML
-	void cancel(MouseEvent event) throws Throwable {
-
-	}
-
-	@FXML
 	void done(MouseEvent event) {
 		if (name.getText().equals("") && lastName.getText().equals("") && telephone.getText().equals("")
 				&& email.getText().equals("") && id.getText().equals("") && semester.getText().equals("")) {

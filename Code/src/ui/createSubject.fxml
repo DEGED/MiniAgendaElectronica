@@ -19,11 +19,6 @@
             <Image url="@../../imgs/subject.png" />
          </image>
       </ImageView>
-      <Label layoutX="24.0" layoutY="15.0" onMouseClicked="#cancel" text="Cancelar">
-         <font>
-            <Font name="Calibri" size="18.0" />
-         </font>
-      </Label>
       <Label layoutX="338.0" layoutY="15.0" onMouseClicked="#done" text="Realizado">
          <font>
             <Font name="Calibri" size="18.0" />
