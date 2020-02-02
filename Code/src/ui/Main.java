@@ -13,12 +13,10 @@ public class Main extends Application {
 	}
 
 	public void start(Stage stage) throws Exception {
-		Parent root = FXMLLoader.load(getClass().getResource("MiniAgendaGUI.fxml"));
-
+		Parent root = FXMLLoader.load(getClass().getResource("student.fxml"));
 		Scene scene = new Scene(root);
 		stage.setTitle("Agenda Electronica");
 		stage.setScene(scene);
 		stage.show();
-
 	}
 }

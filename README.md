@@ -1,4 +1,4 @@
-<h2>Electronic Schedule</h2>
+<h1>ElectronicSchedule</h1>
 
 This project is a contact list that stock the information of the icesi students, the project have the style of contact list in a celphone but with a university objetive.
 The electronic schedule allows view all the students of systems engineering in the systems modeling course.

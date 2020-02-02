@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="324.0" prefWidth="428.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.CreateSubjectController">
+   <children>
+      <Label layoutX="156.0" layoutY="3.0" text="Crear Materia">
+         <font>
+            <Font name="Calibri Bold" size="20.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="164.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../imgs/subject.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="338.0" layoutY="15.0" onMouseClicked="#done" text="Realizado">
+         <font>
+            <Font name="Calibri" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="name" layoutX="18.0" layoutY="140.0" prefHeight="22.0" prefWidth="393.0" promptText="Nombre de la materia">
+         <font>
+            <Font name="Calibri" size="12.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="teacher" layoutX="18.0" layoutY="165.0" prefHeight="22.0" prefWidth="393.0" promptText="Nombre del profesor del curso">
+         <font>
+            <Font name="Calibri" size="12.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="nrc" layoutX="18.0" layoutY="190.0" prefHeight="22.0" prefWidth="393.0" promptText="Identificador del curso (NRC)">
+         <font>
+            <Font name="Calibri" size="12.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="credits" layoutX="18.0" layoutY="215.0" prefHeight="22.0" prefWidth="393.0" promptText="Cantidad de creditos">
+         <font>
+            <Font name="Calibri" size="12.0" />
+         </font>
+      </TextField>
+   </children>
+</Pane>
