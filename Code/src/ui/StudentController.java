@@ -22,9 +22,9 @@ public class StudentController {
 
 	@FXML
 	private TextField search;
-	
+
 	@FXML
-    private Label students;
+	private Label students;
 
 	@FXML
 	void addStudent(MouseEvent event) {
@@ -37,7 +37,8 @@ public class StudentController {
 			st.setScene(s);
 			st.setResizable(false);
 			st.showAndWait();
-		} catch (IOException e) {}
+		} catch (IOException e) {
+		}
 	}
 
 	@FXML
@@ -51,7 +52,8 @@ public class StudentController {
 			st.setScene(s);
 			st.setResizable(false);
 			st.showAndWait();
-		} catch (IOException e) {}
+		} catch (IOException e) {
+		}
 	}
 
 	@FXML

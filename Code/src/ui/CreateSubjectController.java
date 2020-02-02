@@ -39,7 +39,7 @@ public class CreateSubjectController {
 			alert.show();
 		} else {
 			boolean fine = true;
-			
+
 			if (!nrc.getText().equals("")) {
 				try {
 					int nrcInteger = Integer.parseInt(nrc.getText());

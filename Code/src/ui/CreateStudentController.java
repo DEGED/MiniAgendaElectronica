@@ -81,7 +81,7 @@ public class CreateStudentController {
 					int telephoneInteger = Integer.parseInt(telephone.getText());
 					fine = true;
 				} catch (NumberFormatException e) {
-					fine=false;
+					fine = false;
 					Alert alert = new Alert(AlertType.ERROR, "El NRC debe ser un número entero", ButtonType.OK);
 					alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
 					alert.show();
@@ -93,7 +93,7 @@ public class CreateStudentController {
 					int idInteger = Integer.parseInt(id.getText());
 					fine = true;
 				} catch (NumberFormatException e) {
-					fine=false;
+					fine = false;
 					Alert alert = new Alert(AlertType.ERROR,
 							"El número de creditos de un curso debe ser un número entero", ButtonType.OK);
 					alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
@@ -106,7 +106,7 @@ public class CreateStudentController {
 					int semesterInteger = Integer.parseInt(semester.getText());
 					fine = true;
 				} catch (NumberFormatException e) {
-					fine=false;
+					fine = false;
 					Alert alert = new Alert(AlertType.ERROR,
 							"El número de creditos de un curso debe ser un número entero", ButtonType.OK);
 					alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
