@@ -190,28 +190,31 @@ public class StudentsList {
 		line = br.readLine();
 		while (line != null) {
 			String[] parts = line.split(",");
-			URL uRL = new URL(parts[6]);
-			URLConnection uRLConnection = uRL.openConnection();
-			InputStream input = uRLConnection.getInputStream();
-			Image image = new Image(input);
-			Student toAdd = new Student(parts[0], parts[1], parts[2], parts[3], parts[4], parts[5], image);
+			//URL uRL = new URL(parts[6]);
+			//URLConnection uRLConnection = uRL.openConnection();
+			//InputStream input = uRLConnection.getInputStream();
+			//Image image = new Image(input);
+			Student toAdd = new Student(parts[0], parts[1], parts[2], parts[3], parts[4], parts[5], null);
 			students.add(toAdd);
 			line = br.readLine();
 		}
 		fr.close();
 		br.close();
 	}
+	
 
 	public void save() throws FileNotFoundException {
 		PrintWriter writting = new PrintWriter(new File(ROUTE));
+		String sep = "Nombre, Apellido, Telefono, Email, Id, Semestre, Photo" + "\n";
+		writting.print(sep);
 		String tmp = "";
 
 		for (int i = 0; i < students.size(); i++) {
 			tmp += students.get(i).getName() + "," + students.get(i).getLastName() + ","
 					+ students.get(i).getTelephone() + "," + students.get(i).getEmailAddres() + ","
-					+ students.get(i).getId() + "," + students.get(i).getSemester() + "," + students.get(i).getPhoto();
+					+ students.get(i).getId() + "," + students.get(i).getSemester() + "," + "null"+ "\n";
+			
 		}
-
 		writting.print(tmp);
 		writting.close();
 	}

@@ -1,5 +1,5 @@
-first_name,last_name,telephone,emailAdress,id,semester,Photo
-Juan David,Hernandez Valderrama,1234567890,maicol@vojabes.com,0987654321,5,https://robohash.org/quonemodelectus.png?size=50x50&set=set1
-Juan David,Lectamo Caicedo,1234567890,yo@vojabes.com,0987654321,5,https://robohash.org/quonemodelectus.png?size=50x50&set=set1
-Johann Andrei,Ocampo Torres,1234567890,vene@vojabes.com,0987654321,5,https://robohash.org/quonemodelectus.png?size=50x50&set=set1
-Juan Jose,Calderon Vojabes,1234567890,yummi@vojabes.com,0987654321,1,https://robohash.org/quonemodelectus.png?size=50x50&set=set1
+Nombre, Apellido, Telefono, Email, Id, Semestre, Photo
+Ana,Narvaez,4214545,amnarvaez@hotmail.com,A00359508,4,null
+Juan,Hernandez,3155462882,1192766656,5,juanher0825@gmail.com,null
+Juan,Lectamo,3155462882,15648916,5,juanito@vojabes.com,null
+Yummi,Vojabes,125616,15654,6,yummi@vojabes.com,null

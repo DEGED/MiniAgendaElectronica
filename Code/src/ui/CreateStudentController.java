@@ -1,7 +1,9 @@
 package ui;
+import model.*;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -19,6 +21,12 @@ import javafx.scene.layout.Region;
 import javafx.stage.FileChooser;
 
 public class CreateStudentController {
+	
+	//relations
+	
+	private StudentsList student;
+	private StudentController sc;
+	
 
 	@FXML
 	private ImageView image;
@@ -67,16 +75,23 @@ public class CreateStudentController {
 	}
 
 	@FXML
-	void done(MouseEvent event) {
+	void done(MouseEvent event) throws IOException {
 		if (name.getText().equals("") && lastName.getText().equals("") && telephone.getText().equals("")
 				&& email.getText().equals("") && id.getText().equals("") && semester.getText().equals("")) {
 			Alert alert = new Alert(AlertType.ERROR, "Debe ingresar algún valor", ButtonType.OK);
 			alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
 			alert.show();
-		} else {
+		} else if (name.getText().equals("") || lastName.getText().equals("") || telephone.getText().equals("")
+				|| email.getText().equals("") || id.getText().equals("") || semester.getText().equals("")) {
+			
+			Alert alert2 = new Alert(AlertType.ERROR, "Debe llenar todos los campos");
+			alert2.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+			alert2.show();
+		}
+		else {
 			boolean fine = true;
 
-			if (!telephone.getText().equals("")) {
+			if (telephone.getText().equals("")) {
 				try {
 					int telephoneInteger = Integer.parseInt(telephone.getText());
 					fine = true;
@@ -88,7 +103,7 @@ public class CreateStudentController {
 				}
 			}
 
-			if (!id.getText().equals("")) {
+			if (id.getText().equals("")) {
 				try {
 					int idInteger = Integer.parseInt(id.getText());
 					fine = true;
@@ -101,7 +116,7 @@ public class CreateStudentController {
 				}
 			}
 
-			if (!semester.getText().equals("")) {
+			if (semester.getText().equals("")) {
 				try {
 					int semesterInteger = Integer.parseInt(semester.getText());
 					fine = true;
@@ -122,8 +137,22 @@ public class CreateStudentController {
 			//
 
 			if (fine) {
+				
+				/*public Student(String name, String lastName, String telephone, String id, String semester, String emailAddres,
+						Image photo) {*/
+				
+				Student a1 = new Student(name.getText(), lastName.getText(), telephone.getText(), id.getText(), semester.getText()
+						, email.getText(), null);
+				
+				student.addStudent(a1);
+				
+				//sc.recibirscenecscasc(student);
+				
+				student.save();
+				
+				
 				Alert alert = new Alert(AlertType.CONFIRMATION, "Se ha guardado el estudiante con exito",
-						ButtonType.OK);
+						ButtonType.CLOSE);
 				alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
 				alert.show();
 			}
@@ -132,6 +161,10 @@ public class CreateStudentController {
 
 	@FXML
 	void initialize() {
-
+	}
+	
+	
+	public void recibirscenescacsc(StudentsList a) {
+		student = a;
 	}
 }
