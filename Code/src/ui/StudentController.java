@@ -70,7 +70,7 @@ public class StudentController {
 	void initialize() throws IOException {
 		
 		a = new StudentsList();
-		a.loadFile();
+		a.loadStudentsFile();
 		
 		
 

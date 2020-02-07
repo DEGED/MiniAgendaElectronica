@@ -14,21 +14,25 @@ import java.io.PrintWriter;
 
 public class StudentsList {
 
-	public static final String ROUTE = "data/companeros.csv";
+	public static final String STUDENTS_ROUTE = "C:/Users/1005871484/Documents/MiniAgendaElectronica/Code/data/companeros.csv";
+	public static final String SUBJECTS_ROUTE = "C:/Users/1005871484/Documents/MiniAgendaElectronica/Code/data/materias.csv";
 
-	// RELATIONS
+
+	// RELATIONS   
 	private ArrayList<Student> students;
 
+	private ArrayList<Course>  subjects;
 	// COSTRUCTOR
 	public StudentsList() {
 		students = new ArrayList<Student>();
+		subjects = new ArrayList<Course>();
 	}
 
 	// METHODS
 
 	public double subjectAverage() {
 		int totalStudents = students.size();
-		double total = 0;
+		double total = 0; 
 		for (int i = 0; i < students.size(); i++) {
 			total += students.get(i).getCourses().size();
 		}
@@ -183,8 +187,8 @@ public class StudentsList {
 		this.students = students;
 	}
 
-	public void loadFile() throws IOException {
-		FileReader fr = new FileReader(new File(ROUTE));
+	public void loadStudentsFile() throws IOException {
+		FileReader fr = new FileReader(new File(STUDENTS_ROUTE));
 		BufferedReader br = new BufferedReader(fr);
 		String line = br.readLine();
 		line = br.readLine();
@@ -202,10 +206,44 @@ public class StudentsList {
 		br.close();
 	}
 	
+	public void loadSubjectsFile() throws IOException {
+		FileReader fr = new FileReader(new File(SUBJECTS_ROUTE));
+		BufferedReader br = new BufferedReader(fr);
+		String line = br.readLine();
+		line = br.readLine();
+		while (line != null) {
+			String[] parts = line.split(",");
+			//URL uRL = new URL(parts[6]);
+			//URLConnection uRLConnection = uRL.openConnection();
+			//InputStream input = uRLConnection.getInputStream();
+			//Image image = new Image(input);
+			Course toAdd = new Course(parts[0], parts[1], Integer.parseInt(parts[2]), parts[3], Integer.parseInt(parts[4]), Integer.parseInt(parts[5]));
+			subjects.add(toAdd);
+			line = br.readLine();
+		}
+		fr.close();
+		br.close();
+	}
+	
 
-	public void save() throws FileNotFoundException {
-		PrintWriter writting = new PrintWriter(new File(ROUTE));
+	public void studentsSave() throws FileNotFoundException {
+		PrintWriter writting = new PrintWriter(new File(STUDENTS_ROUTE));
 		String sep = "Nombre, Apellido, Telefono, Email, Id, Semestre, Photo" + "\n";
+		writting.print(sep);
+		String tmp = "";
+
+		for (int i = 0; i < students.size(); i++) {
+			tmp += students.get(i).getName() + "," + students.get(i).getLastName() + ","
+					+ students.get(i).getTelephone() + "," + students.get(i).getEmailAddres() + ","
+					+ students.get(i).getId() + "," + students.get(i).getSemester() + "," + "null"+ "\n";
+			
+		}
+		writting.print(tmp);
+		writting.close();
+	}
+	public void subjectsSave() throws FileNotFoundException {
+		PrintWriter writting = new PrintWriter(new File(STUDENTS_ROUTE));
+		String sep = "Nombre del curso, Profesor, Numero del grupo, nrc, creditos, numero de estudiantes" + "\n";
 		writting.print(sep);
 		String tmp = "";
 
