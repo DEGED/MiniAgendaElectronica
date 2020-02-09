@@ -9,18 +9,18 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.VBox;
-import javafx.stage.Modality;
+import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 
 public class StudentController {
@@ -143,40 +143,30 @@ public class StudentController {
 	@FXML
 	void handleRowSelect(MouseEvent event) {
 		if (event.getClickCount() == 2) {
-			Student row = studentsTable.getSelectionModel().getSelectedItem();
-			Stage genericStage = new Stage();
-			genericStage.initModality(Modality.APPLICATION_MODAL);
-			genericStage.initOwner(stage);
-			VBox generic = new VBox(20);
-			Scene scene = new Scene(generic, 500, 800);
-			ImageView view = new ImageView();
-			Label rowName = new Label();
-			Label rowLastName = new Label();
-			Label rowTelephone = new Label();
-			Label rowEmailAddres = new Label();
-			Label rowId = new Label();
-			Label rowSemeter = new Label();
-			view.setImage(studentList.getStudents().get(0).getPhoto());
-			
-			
-			rowName.setText("Name: " + row.getName());
-			rowLastName.setText("Last name: " + row.getLastName());
-			rowTelephone.setText("Telephone: " + row.getTelephone());
-			rowEmailAddres.setText("Email addres: " + row.getId());
-			rowId.setText("Id: " + row.getSemester());
-			rowSemeter.setText("semester: " + row.getEmailAddres());
-//	    	Agregar la imagen al generic de primera ya que esta muestra las cosas segun el orden de agregado 
-			generic.getChildren().add(rowName);
-			generic.getChildren().add(rowLastName);
-			generic.getChildren().add(rowTelephone);
-			generic.getChildren().add(rowEmailAddres);
-			generic.getChildren().add(rowId);
-			generic.getChildren().add(rowSemeter);
-			generic.setAlignment(Pos.CENTER);
+			try {
+				try {
+					FXMLLoader loader = new FXMLLoader(getClass().getResource("showStudent.fxml"));
+					Parent root = loader.load();
 
-			genericStage.setScene(scene);
-			genericStage.show();
+					ShowStudentController temp = (ShowStudentController) loader.getController();
+					Student row = studentsTable.getSelectionModel().getSelectedItem();
 
+					temp.fill("Name: " + row.getName(), "Last name: " + row.getLastName(),
+							"Telephone: " + row.getTelephone(), "Id: " + row.getId(), "Semester: " + row.getSemester(),
+							"Email: " + row.getEmailAddres(), row.getPhoto());
+
+					Scene s = new Scene(root);
+					Stage st = new Stage();
+					st.setTitle("Informacion del estudiante");
+					st.setScene(s);
+					st.setResizable(false);
+					st.showAndWait();
+				} catch (IOException e) {}
+			} catch (NullPointerException e) {
+				Alert alert = new Alert(AlertType.ERROR, "Por favor seleccione un estudiante", ButtonType.OK);
+				alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+				alert.show();
+			}
 		}
 	}
 }

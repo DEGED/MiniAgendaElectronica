@@ -160,7 +160,7 @@ public class CreateStudentController {
 	}
 	
 	
-	public void recibirscenescacsc(StudentsList a) {
-		student = a;
+	public void recibirscenescacsc(StudentsList studentList) {
+		student = studentList;
 	}
 }
