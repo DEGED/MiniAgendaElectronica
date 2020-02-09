@@ -1,5 +1,6 @@
-first_name,last_name,phone,email,id,semester,photo
-Ana,Narvaez,4214545,amnarvaez@hotmail.com,A00359508,4,https://www.rockandpop.cl/wp-content/uploads/2019/03/64c87618ca8a75cf849759e97605e8e4fcc9195169798bf1afd2e6b6e36a5ca0-400x360.jpg
-Juan,Hernandez,3155462882,juanher0825@gmail.com,1192766656,5,https://www.rockandpop.cl/wp-content/uploads/2019/03/64c87618ca8a75cf849759e97605e8e4fcc9195169798bf1afd2e6b6e36a5ca0-400x360.jpg
-Juan,Lectamo,3155462882,juanito@vojabes.com,15648916,5,https://www.rockandpop.cl/wp-content/uploads/2019/03/64c87618ca8a75cf849759e97605e8e4fcc9195169798bf1afd2e6b6e36a5ca0-400x360.jpg
-Yummi,Vojabes,125616,yummi@vojabes.com,15654,6,https://www.rockandpop.cl/wp-content/uploads/2019/03/64c87618ca8a75cf849759e97605e8e4fcc9195169798bf1afd2e6b6e36a5ca0-400x360.jpg
+Nombre, Apellido, Telefono, Email, Id, Semestre, Photo
+Ana,Narvaez,4214545,4,amnarvaez@hotmail.com,A00359508,null
+Jairo,Emilio,123456789,sads@gmail.com,12365789987,3,null
+Juan,Hernandez,3155462882,5,juanher0825@gmail.com,1192766656,null
+Juan,Lectamo,3155462882,5,juanito@vojabes.com,15648916,null
+Yummi,Vojabes,125616,6,yummi@vojabes.com,15654,null
