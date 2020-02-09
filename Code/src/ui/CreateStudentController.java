@@ -3,7 +3,6 @@ import model.*;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -23,11 +22,9 @@ import javafx.stage.FileChooser;
 public class CreateStudentController {
 	
 	//relations
-	
 	private StudentsList student;
 	private StudentController sc;
 	
-
 	@FXML
 	private ImageView image;
 

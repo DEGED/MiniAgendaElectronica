@@ -35,13 +35,13 @@ class StudentsListTest {
 		setupScenary1();
 		setupScenary2();
 
-		pred.loadFile();
+		// pred.loadFile();
 
 		for (int I = 0; I < students.getStudents().size(); I++) {
-		//	assertTrue(
-		//			"The name of: " + pred.getStudents().get(I).getName() + " should be: "
-		//					+ students.getStudents().get(I).getName(),
-		//			pred.getStudents().get(I).getName().equals(students.getStudents().get(I).getName()));
+			// assertTrue(
+			// "The name of: " + pred.getStudents().get(I).getName() + " should be: "
+			// + students.getStudents().get(I).getName(),
+			// pred.getStudents().get(I).getName().equals(students.getStudents().get(I).getName()));
 
 			assertTrue(
 					"The last name of: " + pred.getStudents().get(I).getLastName() + " should be: "

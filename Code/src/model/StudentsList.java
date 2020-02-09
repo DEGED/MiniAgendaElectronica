@@ -5,23 +5,23 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.net.URL;
-import java.net.URLConnection;
 import java.util.ArrayList;
 import javafx.scene.image.Image;
-import java.io.InputStream;
 import java.io.PrintWriter;
+import java.io.InputStream;
+import java.net.URL;
+import java.net.URLConnection;
 
 public class StudentsList {
 
-	public static final String STUDENTS_ROUTE = "C:/Users/johan/eclipse-workspace/MiniAgendaElectronica/Code/data/companeros.csv";
+	public static final String STUDENTS_ROUTE = "data/companeros.csv";
 	public static final String SUBJECTS_ROUTE = "data/materias.csv";
 
-
-	// RELATIONS   
+	// RELATIONS
 	private ArrayList<Student> students;
 
-	private ArrayList<Course>  subjects;
+	private ArrayList<Course> subjects;
+
 	// COSTRUCTOR
 	public StudentsList() {
 		students = new ArrayList<Student>();
@@ -32,7 +32,7 @@ public class StudentsList {
 
 	public double subjectAverage() {
 		int totalStudents = students.size();
-		double total = 0; 
+		double total = 0;
 		for (int i = 0; i < students.size(); i++) {
 			total += students.get(i).getCourses().size();
 		}
@@ -120,7 +120,6 @@ public class StudentsList {
 				} else {
 					return -1;
 				}
-
 			}
 		} else if (typeOfSearch == 2) {
 			for (int i = 0; i < students.size(); i++) {
@@ -194,18 +193,18 @@ public class StudentsList {
 		line = br.readLine();
 		while (line != null) {
 			String[] parts = line.split(",");
-			//URL uRL = new URL(parts[6]);
-			//URLConnection uRLConnection = uRL.openConnection();
-			//InputStream input = uRLConnection.getInputStream();
-			//Image image = new Image(input);
-			Student toAdd = new Student(parts[0], parts[1], parts[2], parts[3], parts[4], parts[5], null);
+			
+			String url = parts[6];
+			Image image = new Image(url);
+			
+			Student toAdd = new Student(parts[0], parts[1], parts[2], parts[3], parts[4], parts[5],image);
 			students.add(toAdd);
 			line = br.readLine();
 		}
 		fr.close();
 		br.close();
 	}
-	
+
 	public void loadSubjectsFile() throws IOException {
 		FileReader fr = new FileReader(new File(SUBJECTS_ROUTE));
 		BufferedReader br = new BufferedReader(fr);
@@ -213,18 +212,14 @@ public class StudentsList {
 		line = br.readLine();
 		while (line != null) {
 			String[] parts = line.split(",");
-			//URL uRL = new URL(parts[6]);
-			//URLConnection uRLConnection = uRL.openConnection();
-			//InputStream input = uRLConnection.getInputStream();
-			//Image image = new Image(input);
-			Course toAdd = new Course(parts[0], parts[1], Integer.parseInt(parts[2]), parts[3], Integer.parseInt(parts[4]), Integer.parseInt(parts[5]));
+			Course toAdd = new Course(parts[0], parts[1], parts[2], Integer.parseInt(parts[3]),
+					Integer.parseInt(parts[4]));
 			subjects.add(toAdd);
 			line = br.readLine();
 		}
 		fr.close();
 		br.close();
 	}
-	
 
 	public void studentsSave() throws FileNotFoundException {
 		PrintWriter writting = new PrintWriter(new File(STUDENTS_ROUTE));
@@ -235,12 +230,13 @@ public class StudentsList {
 		for (int i = 0; i < students.size(); i++) {
 			tmp += students.get(i).getName() + "," + students.get(i).getLastName() + ","
 					+ students.get(i).getTelephone() + "," + students.get(i).getEmailAddres() + ","
-					+ students.get(i).getId() + "," + students.get(i).getSemester() + "," + "null"+ "\n";
-			
+					+ students.get(i).getId() + "," + students.get(i).getSemester() + "," + "null" + "\n";
+
 		}
 		writting.print(tmp);
 		writting.close();
 	}
+
 	public void subjectsSave() throws FileNotFoundException {
 		PrintWriter writting = new PrintWriter(new File(STUDENTS_ROUTE));
 		String sep = "Nombre del curso, Profesor, Numero del grupo, nrc, creditos, numero de estudiantes" + "\n";
@@ -250,8 +246,8 @@ public class StudentsList {
 		for (int i = 0; i < students.size(); i++) {
 			tmp += students.get(i).getName() + "," + students.get(i).getLastName() + ","
 					+ students.get(i).getTelephone() + "," + students.get(i).getEmailAddres() + ","
-					+ students.get(i).getId() + "," + students.get(i).getSemester() + "," + "null"+ "\n";
-			
+					+ students.get(i).getId() + "," + students.get(i).getSemester() + "," + "null" + "\n";
+
 		}
 		writting.print(tmp);
 		writting.close();
