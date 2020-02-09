@@ -148,8 +148,7 @@ public class CreateStudentController {
 				
 				//sc.recibirscenecscasc(student);
 				
-				student.save();
-				
+				student.studentsSave();				
 				
 				Alert alert = new Alert(AlertType.CONFIRMATION, "Se ha guardado el estudiante con exito",
 						ButtonType.CLOSE);

@@ -14,8 +14,8 @@ import java.io.PrintWriter;
 
 public class StudentsList {
 
-	public static final String STUDENTS_ROUTE = "C:/Users/1005871484/Documents/MiniAgendaElectronica/Code/data/companeros.csv";
-	public static final String SUBJECTS_ROUTE = "C:/Users/1005871484/Documents/MiniAgendaElectronica/Code/data/materias.csv";
+	public static final String STUDENTS_ROUTE = "C:/Users/johan/eclipse-workspace/MiniAgendaElectronica/Code/data/companeros.csv";
+	public static final String SUBJECTS_ROUTE = "data/materias.csv";
 
 
 	// RELATIONS   
