@@ -123,4 +123,5 @@ public class Student implements Comparable<Student> {
 	public void setPhoto(Image photo) {
 		this.photo = photo;
 	}
+	
 }

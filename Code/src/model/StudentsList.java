@@ -230,7 +230,7 @@ public class StudentsList {
 		for (int i = 0; i < students.size(); i++) {
 			tmp += students.get(i).getName() + "," + students.get(i).getLastName() + ","
 					+ students.get(i).getTelephone() + "," + students.get(i).getEmailAddres() + ","
-					+ students.get(i).getId() + "," + students.get(i).getSemester() + "," + "null" + "\n";
+					+ students.get(i).getId() + "," + students.get(i).getSemester() + "," + "link de mierda" + "\n";
 
 		}
 		writting.print(tmp);
