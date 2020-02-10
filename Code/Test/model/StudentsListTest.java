@@ -12,13 +12,12 @@ class StudentsListTest {
 		students = new StudentsList();
 
 		Student x = new Student("Juan David", "Hernandez Valderrama", "1234567890", "maicol@vojabes.com", "0987654321",
-				"5", null);
-		Student y = new Student("Juan David", "Lectamo Caicedo", "1234567890", "yo@vojabes.com", "0987654321", "5",
-				null);
+				"5", "");
+		Student y = new Student("Juan David", "Lectamo Caicedo", "1234567890", "yo@vojabes.com", "0987654321", "5", "");
 		Student z = new Student("Johann Andrei", "Ocampo Torres", "1234567890", "vene@vojabes.com", "0987654321", "5",
-				null);
+				"");
 		Student w = new Student("Juan Jose", "Calderon Vojabes", "1234567890", "yummi@vojabes.com", "0987654321", "1",
-				null);
+				"");
 
 		students.addStudent(x);
 		students.addStudent(y);

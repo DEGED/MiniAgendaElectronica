@@ -1,7 +1,6 @@
 package model;
 
 import java.util.ArrayList;
-import javafx.scene.image.Image;
 
 public class Student implements Comparable<Student> {
 
@@ -12,14 +11,13 @@ public class Student implements Comparable<Student> {
 	private String emailAddres;
 	private String id;
 	private String semester;
-	private Image photo;
+	private String urlPhoto;
 
 	// RELATIONS
 	private ArrayList<Course> courses;
 
 	// CONSTRUCTOR
-	public Student(String name, String lastName, String telephone, String id, String semester, String emailAddres,
-			Image photo) {
+	public Student(String name, String lastName, String telephone, String id, String semester, String emailAddres, String urlPhoto) {
 		super();
 		this.name = name;
 		this.lastName = lastName;
@@ -27,7 +25,7 @@ public class Student implements Comparable<Student> {
 		this.emailAddres = emailAddres;
 		this.id = id;
 		this.semester = semester;
-		this.setPhoto(photo);
+		this.setUrlPhoto(urlPhoto);
 		courses = new ArrayList<Course>();
 	}
 
@@ -116,12 +114,11 @@ public class Student implements Comparable<Student> {
 		this.courses = courses;
 	}
 
-	public Image getPhoto() {
-		return photo;
+	public String getUrlPhoto() {
+		return urlPhoto;
 	}
 
-	public void setPhoto(Image photo) {
-		this.photo = photo;
+	public void setUrlPhoto(String urlPhoto) {
+		this.urlPhoto = urlPhoto;
 	}
-	
 }

@@ -153,8 +153,8 @@ public class StudentController {
 
 					temp.fill("Name: " + row.getName(), "Last name: " + row.getLastName(),
 							"Telephone: " + row.getTelephone(), "Id: " + row.getId(), "Semester: " + row.getSemester(),
-							"Email: " + row.getEmailAddres(), row.getPhoto());
-
+							"Email: " + row.getEmailAddres(), row.getUrlPhoto());
+					
 					Scene s = new Scene(root);
 					Stage st = new Stage();
 					st.setTitle("Informacion del estudiante");

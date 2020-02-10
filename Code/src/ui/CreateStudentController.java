@@ -1,13 +1,11 @@
 package ui;
 import model.*;
 
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
+import java.net.URLConnection;
 import java.util.ResourceBundle;
-import javax.imageio.ImageIO;
-import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -17,7 +15,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Region;
-import javafx.stage.FileChooser;
 
 public class CreateStudentController {
 	
@@ -52,24 +49,8 @@ public class CreateStudentController {
 	@FXML
 	private TextField semester;
 
-	@FXML
-	void addPhoto(MouseEvent event) {
-		FileChooser fileChooser = new FileChooser();
-		FileChooser.ExtensionFilter extFilterJPG = new FileChooser.ExtensionFilter("JPG files (*.JPG)", "*.JPG");
-		FileChooser.ExtensionFilter extFilterjpg = new FileChooser.ExtensionFilter("jpg files (*.jpg)", "*.jpg");
-		FileChooser.ExtensionFilter extFilterPNG = new FileChooser.ExtensionFilter("PNG files (*.PNG)", "*.PNG");
-		FileChooser.ExtensionFilter extFilterpng = new FileChooser.ExtensionFilter("png files (*.png)", "*.png");
-		fileChooser.getExtensionFilters().addAll(extFilterJPG, extFilterjpg, extFilterPNG, extFilterpng);
-		File file = fileChooser.showOpenDialog(null);
-
-		try {
-			BufferedImage bufferedImage = ImageIO.read(file);
-			Image imageLoaded = SwingFXUtils.toFXImage(bufferedImage, null);
-			image.setImage(imageLoaded);
-		} catch (IOException e) {
-		} catch (IllegalArgumentException e) {
-		}
-	}
+    @FXML
+    private TextField URLimage;
 
 	@FXML
 	void done(MouseEvent event) throws IOException {
@@ -88,7 +69,7 @@ public class CreateStudentController {
 		else {
 			boolean fine = true;
 
-			if (telephone.getText().equals("")) {
+			if (!telephone.getText().equals("")) {
 				try {
 					int telephoneInteger = Integer.parseInt(telephone.getText());
 					fine = true;
@@ -100,7 +81,7 @@ public class CreateStudentController {
 				}
 			}
 
-			if (id.getText().equals("")) {
+			if (!id.getText().equals("")) {
 				try {
 					int idInteger = Integer.parseInt(id.getText());
 					fine = true;
@@ -113,7 +94,7 @@ public class CreateStudentController {
 				}
 			}
 
-			if (semester.getText().equals("")) {
+			if (!semester.getText().equals("")) {
 				try {
 					int semesterInteger = Integer.parseInt(semester.getText());
 					fine = true;
@@ -126,31 +107,34 @@ public class CreateStudentController {
 				}
 			}
 
-			// Literalmente todo lo que falta por hacer de este metodo se debe completar en
-			// este else
-
-			// Aquí se llama al modelo y se crea un objeto tipo estudiante
-			// Si algún campo está vacío, se tomará el valor como ""
-			//
-
 			if (fine) {
 				
 				/*public Student(String name, String lastName, String telephone, String id, String semester, String emailAddres,
 						Image photo) {*/
 				
-				Student a1 = new Student(name.getText(), lastName.getText(), telephone.getText(), id.getText(), semester.getText()
-						, email.getText(), null);
-				
-				student.addStudent(a1);
-				
-				//sc.recibirscenecscasc(student);
-				
-				student.studentsSave();				
-				
-				Alert alert = new Alert(AlertType.CONFIRMATION, "Se ha guardado el estudiante con exito",
-						ButtonType.CLOSE);
-				alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
-				alert.show();
+				try{
+					//Esto es para evitar se pongan URL invalidos
+					URL url = new URL(URLimage.getText());
+					URLConnection conn = url.openConnection();
+					InputStream in = conn.getInputStream();
+					
+					Student a1 = new Student(name.getText(), lastName.getText(), telephone.getText(), id.getText(), semester.getText()
+							, email.getText(), URLimage.getText());
+					
+					student.addStudent(a1);
+					
+					student.studentsSave();				
+					
+					Alert alert = new Alert(AlertType.CONFIRMATION, "Se ha guardado el estudiante con exito",
+							ButtonType.CLOSE);
+					alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+					alert.show();
+				}catch (IOException e) {
+					Alert alert = new Alert(AlertType.CONFIRMATION, "Por favorintroduzca una URL valida",
+							ButtonType.CLOSE);
+					alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+					alert.show();
+				}
 			}
 		}
 	}
@@ -158,7 +142,6 @@ public class CreateStudentController {
 	@FXML
 	void initialize() {
 	}
-	
 	
 	public void recibirscenescacsc(StudentsList studentList) {
 		student = studentList;

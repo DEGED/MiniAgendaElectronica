@@ -59,10 +59,10 @@
             <Font name="Calibri" size="12.0" />
          </font>
       </TextField>
-      <Label layoutX="167.0" layoutY="141.0" onMouseClicked="#addPhoto" text="Agregar foto" textFill="WHITE">
+      <TextField fx:id="URLimage" layoutX="18.0" layoutY="323.0" prefHeight="22.0" prefWidth="393.0" promptText="URL de la imagen que desea agregar">
          <font>
-            <Font name="Calibri" size="18.0" />
+            <Font name="Calibri" size="12.0" />
          </font>
-      </Label>
+      </TextField>
    </children>
 </Pane>

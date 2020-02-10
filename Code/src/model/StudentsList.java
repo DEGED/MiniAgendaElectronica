@@ -6,11 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import javafx.scene.image.Image;
 import java.io.PrintWriter;
-import java.io.InputStream;
-import java.net.URL;
-import java.net.URLConnection;
 
 public class StudentsList {
 
@@ -193,11 +189,7 @@ public class StudentsList {
 		line = br.readLine();
 		while (line != null) {
 			String[] parts = line.split(",");
-			
-			String url = parts[6];
-			Image image = new Image(url);
-			
-			Student toAdd = new Student(parts[0], parts[1], parts[2], parts[3], parts[4], parts[5],image);
+			Student toAdd = new Student(parts[0], parts[1], parts[2], parts[3], parts[4], parts[5], parts[6]);
 			students.add(toAdd);
 			line = br.readLine();
 		}
@@ -223,15 +215,15 @@ public class StudentsList {
 
 	public void studentsSave() throws FileNotFoundException {
 		PrintWriter writting = new PrintWriter(new File(STUDENTS_ROUTE));
-		String sep = "Nombre, Apellido, Telefono, Email, Id, Semestre, Photo" + "\n";
+		String sep = "aombre,apellido,telefono,email,id,semestre,Photo,urlPhoto" + "\n";
 		writting.print(sep);
 		String tmp = "";
 
 		for (int i = 0; i < students.size(); i++) {
 			tmp += students.get(i).getName() + "," + students.get(i).getLastName() + ","
 					+ students.get(i).getTelephone() + "," + students.get(i).getEmailAddres() + ","
-					+ students.get(i).getId() + "," + students.get(i).getSemester() + "," + "link de mierda" + "\n";
-
+					+ students.get(i).getId() + "," + students.get(i).getSemester() + ","
+					+ students.get(i).getUrlPhoto() + "\n";
 		}
 		writting.print(tmp);
 		writting.close();
