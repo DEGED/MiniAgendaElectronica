@@ -2,6 +2,8 @@
 
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -22,15 +24,19 @@
          </font>
       </Label>
       <TextField fx:id="search" layoutX="32.0" layoutY="65.0" prefHeight="25.0" prefWidth="336.0" promptText="🔍 Buscar" />
-      <ScrollPane layoutX="3.0" layoutY="110.0" prefHeight="536.0" prefWidth="422.0">
+      <ScrollPane layoutX="3.0" layoutY="110.0" prefHeight="529.0" prefWidth="461.0">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="533.0" prefWidth="420.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="740.0" prefWidth="782.0">
                <children>
-                  <Label fx:id="subjects" layoutX="14.0" layoutY="14.0">
-                     <font>
-                        <Font name="Calibri" size="15.0" />
-                     </font>
-                  </Label>
+                  <TableView fx:id="studentsTable" onMouseClicked="#handleRowSelect" prefHeight="740.0" prefWidth="968.0">
+                     <columns>
+                        <TableColumn fx:id="nameColumn" prefWidth="220.0" text="Materia" />
+                        <TableColumn fx:id="lastNameColumn" prefWidth="220.0" text="Maestro" />
+                        <TableColumn fx:id="telephoneColumn" minWidth="5.0" prefWidth="100.0" text="NRC" />
+                        <TableColumn fx:id="idColumn" minWidth="0.0" prefWidth="100.0" text="Creditos" />
+                        <TableColumn fx:id="semesterColumn" minWidth="0.0" prefWidth="150.0" text="# estudiantes matriculados" />
+                     </columns>
+                  </TableView>
                </children></AnchorPane>
         </content>
       </ScrollPane>
