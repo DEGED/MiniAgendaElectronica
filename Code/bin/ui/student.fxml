@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="724.0" prefWidth="465.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.StudentController">
+   <children>
+      <ImageView fitHeight="748.0" fitWidth="486.0">
+         <image>
+            <Image url="@../../imgs/wallpaper.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="32.0" layoutY="26.0" text="Agenda" textFill="WHITE">
+         <font>
+            <Font name="Calibri Bold" size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="search" layoutX="32.0" layoutY="65.0" prefHeight="25.0" prefWidth="362.0" promptText="🔍 Buscar" />
+      <ScrollPane layoutX="3.0" layoutY="110.0" prefHeight="529.0" prefWidth="461.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="740.0" prefWidth="782.0">
+               <children>
+                  <TableView fx:id="studentsTable" layoutY="14.0" onMouseClicked="#handleRowSelect" prefHeight="740.0" prefWidth="876.0">
+                    <columns>
+                      <TableColumn fx:id="nameColumn" prefWidth="130.0" text="Nombre" />
+                      <TableColumn fx:id="lastNameColumn" prefWidth="130.0" text="Apellido" />
+                        <TableColumn fx:id="telephoneColumn" minWidth="5.0" prefWidth="130.0" text="Telefono" />
+                        <TableColumn fx:id="idColumn" minWidth="0.0" prefWidth="130.0" text="Identificacion" />
+                        <TableColumn fx:id="semesterColumn" minWidth="0.0" prefWidth="87.0" text="Semestre" />
+                        <TableColumn fx:id="emailColumn" minWidth="0.0" prefWidth="268.0" text="Correo" />
+                    </columns>
+                  </TableView>
+               </children></AnchorPane>
+        </content>
+      </ScrollPane>
+      <Label layoutX="414.0" layoutY="11.0" onMouseClicked="#addStudent" text="+" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="40.0" />
+         </font>
+      </Label>
+      <Label layoutX="120.0" layoutY="694.0" text="ESTUDIANTES" textFill="WHITE">
+         <font>
+            <Font name="Calibri Bold" size="15.0" />
+         </font></Label>
+      <Label layoutX="223.0" layoutY="694.0" text="MATERIAS" textFill="WHITE">
+         <font>
+            <Font name="Calibri" size="15.0" />
+         </font></Label>
+      <ImageView fitHeight="47.0" fitWidth="47.0" layoutX="139.0" layoutY="646.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../imgs/contacts.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="47.0" fitWidth="47.0" layoutX="231.0" layoutY="646.0" onMouseClicked="#goToTheSubjects" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../imgs/subject.png" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>

@@ -10,7 +10,7 @@ import java.io.PrintWriter;
 
 public class StudentsList {
 
-	public static final String STUDENTS_ROUTE = "data/estudiantes.csv";
+	public static final String STUDENTS_ROUTE = "C:\\Users\\johan\\eclipse-workspace\\MiniAgendaElectronica\\Code/data/estudiantes.csv";
 	public static final String SUBJECTS_ROUTE = "data/materias.csv";
 
 	// RELATIONS
@@ -49,13 +49,13 @@ public class StudentsList {
 	}
 
 	public Student searchStudentByName(String name) {
-		if (containsStudent(1, name) == 1) {
+		if (containsStudent("Name", name) == 1){
 			for (int i = 0; i < students.size(); i++) {
-				if (students.get(i).getName().equals(name)) {
+				if(students.get(i).getName().equals(name)){
 					return students.get(i);
 				}
 			}
-		} else {
+		} else if(containsStudent("Name", name) == -1){
 			throw new IllegalArgumentException("Unexpected value: ");
 
 		}
@@ -64,7 +64,7 @@ public class StudentsList {
 	}
 
 	public Student searchStudentByLastName(String lastName) {
-		if (containsStudent(1, lastName) == 1) {
+		if (containsStudent("lastName", lastName) == 1) {
 			for (int i = 0; i < students.size(); i++) {
 				if (students.get(i).getLastName().equals(lastName)) {
 					return students.get(i);
@@ -79,7 +79,7 @@ public class StudentsList {
 	}
 
 	public Student searchStudentByPhone(String phone) {
-		if (containsStudent(1, phone) == 1) {
+		if (containsStudent("phone", phone) == 1) {
 			for (int i = 0; i < students.size(); i++) {
 				if (students.get(i).getTelephone().equals(phone)) {
 					return students.get(i);
@@ -94,7 +94,7 @@ public class StudentsList {
 	}
 
 	public Student searchStudentByEmailAddres(String emailAddres) {
-		if (containsStudent(1, emailAddres) == 1) {
+		if (containsStudent("email", emailAddres) == 1) {
 			for (int i = 0; i < students.size(); i++) {
 				if (students.get(i).getEmailAddres().equals(emailAddres)) {
 					return students.get(i);
@@ -108,38 +108,32 @@ public class StudentsList {
 
 	}
 
-	public int containsStudent(int typeOfSearch, String criterion) {
-		if (typeOfSearch == 1) {
+	public int containsStudent(String typeOfSearch, String criterion) {
+		
+		if (typeOfSearch.equals("Name")) {
 			for (int i = 0; i < students.size(); i++) {
-				if (students.get(i).getName().equals(criterion)) {
+				if (students.get(i).getName().equalsIgnoreCase(criterion)) {
 					return 1;
-				} else {
-					return -1;
 				}
 			}
-		} else if (typeOfSearch == 2) {
+			
+		} else if (typeOfSearch.equalsIgnoreCase("lastName")) {
 			for (int i = 0; i < students.size(); i++) {
 				if (students.get(i).getLastName().equals(criterion)) {
 					return 1;
-				} else {
-					return -1;
 				}
 			}
-		} else if (typeOfSearch == 3) {
+		} else if (typeOfSearch.equalsIgnoreCase("phone")) {
 			for (int i = 0; i < students.size(); i++) {
 				if (students.get(i).getTelephone().equals(criterion)) {
 					return 1;
-				} else {
-					return -1;
 				}
 			}
-		} else if (typeOfSearch == 4) {
+		} else if (typeOfSearch.equalsIgnoreCase("email")) {
 			for (int i = 0; i < students.size(); i++) {
 				if (students.get(i).getEmailAddres().equals(criterion)) {
 					return 1;
-				} else {
-					return -1;
-				}
+				} 
 			}
 		}
 		return -1;
