@@ -215,14 +215,14 @@ public class StudentsList {
 
 	public void studentsSave() throws FileNotFoundException {
 		PrintWriter writting = new PrintWriter(new File(STUDENTS_ROUTE));
-		String sep = "aombre,apellido,telefono,email,id,semestre,Photo,urlPhoto" + "\n";
+		String sep = "Nombre,apellido,telefono,semestre,email,id,urlPhoto" + "\n";
 		writting.print(sep);
 		String tmp = "";
 
 		for (int i = 0; i < students.size(); i++) {
 			tmp += students.get(i).getName() + "," + students.get(i).getLastName() + ","
-					+ students.get(i).getTelephone() + "," + students.get(i).getEmailAddres() + ","
-					+ students.get(i).getId() + "," + students.get(i).getSemester() + ","
+					+ students.get(i).getTelephone() + "," + students.get(i).getSemester() + ","
+					+ students.get(i).getEmailAddres() + "," + students.get(i).getId() + ","
 					+ students.get(i).getUrlPhoto() + "\n";
 		}
 		writting.print(tmp);
