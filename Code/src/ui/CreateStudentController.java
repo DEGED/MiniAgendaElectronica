@@ -7,6 +7,10 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
@@ -15,6 +19,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Region;
+import javafx.stage.Stage;
 
 public class CreateStudentController {
 	
@@ -69,7 +74,7 @@ public class CreateStudentController {
 		else {
 			boolean fine = true;
 
-			if (!telephone.getText().equals("")) {
+			/*if (!telephone.getText().equals("")) {
 				try {
 					int telephoneInteger = Integer.parseInt(telephone.getText());
 					fine = true;
@@ -105,7 +110,7 @@ public class CreateStudentController {
 					alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
 					alert.show();
 				}
-			}
+			}*/
 
 			if (fine) {
 				
@@ -123,12 +128,33 @@ public class CreateStudentController {
 					
 					student.addStudent(a1);
 					
-					student.studentsSave();				
+					student.studentsSave();
 					
 					Alert alert = new Alert(AlertType.CONFIRMATION, "Se ha guardado el estudiante con exito",
 							ButtonType.CLOSE);
 					alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
 					alert.show();
+					
+					
+					
+					
+					
+					
+					FXMLLoader loader = new FXMLLoader(getClass().getResource("student.fxml"));
+					Parent root = loader.load();
+					
+					Scene s = new Scene(root);
+					Stage st = new Stage();
+					st.setTitle("Agregar estudiante a la agenda");
+					st.setScene(s);
+					st.setResizable(false);
+					st.show();
+					
+					Node source = (Node) event.getSource();
+				    Stage stage = (Stage) source.getScene().getWindow();
+				    stage.close();
+					
+					
 				}catch (IOException e) {
 					Alert alert = new Alert(AlertType.CONFIRMATION, "Por favorintroduzca una URL valida",
 							ButtonType.CLOSE);

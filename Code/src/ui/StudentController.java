@@ -9,6 +9,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -25,8 +26,6 @@ import javafx.stage.Stage;
 
 public class StudentController {
 	private StudentsList studentList;
-
-	private Stage stage;
 
 	@FXML
 	private ResourceBundle resources;
@@ -62,6 +61,9 @@ public class StudentController {
 	@FXML
 	void addStudent(MouseEvent event) {
 		try {
+			Node source = (Node) event.getSource();
+		    Stage stage = (Stage) source.getScene().getWindow();
+		    stage.close();
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("createStudent.fxml"));
 			Parent root = loader.load();
 
@@ -73,6 +75,9 @@ public class StudentController {
 			st.setScene(s);
 			st.setResizable(false);
 			st.showAndWait();
+			
+			
+		    
 		} catch (IOException e) {
 		}
 	}
