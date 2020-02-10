@@ -10,7 +10,7 @@ import java.io.PrintWriter;
 
 public class StudentsList {
 
-	public static final String STUDENTS_ROUTE = "C:\\Users\\johan\\eclipse-workspace\\MiniAgendaElectronica\\Code/data/estudiantes.csv";
+	public static final String STUDENTS_ROUTE = "data/estudiantes.csv";
 	public static final String SUBJECTS_ROUTE = "data/materias.csv";
 
 	// RELATIONS

@@ -10,7 +10,6 @@ import org.junit.jupiter.api.Test;
 class StudentsListTest {
 
 	private StudentsList students;
-	private StudentsList pred;
 
 	public void setupScenary1() throws IOException {
 		students = new StudentsList();
@@ -37,30 +36,31 @@ class StudentsListTest {
 	@Test
 	public void loadFileTest() throws IOException {
 		setupScenary1();
-		assertTrue(students.getStudents().get(0).getName().equals("Jhon Edward"));
-		assertTrue(students.getStudents().get(0).getLastName().equals("Mora Mora"));
-		assertTrue(students.getStudents().get(0).getTelephone().equals("3166360553"));
-		assertTrue(students.getStudents().get(0).getEmailAddres(),students.getStudents().get(0).getEmailAddres().equals("jhonedmora@gmail.com"));
-		assertTrue(students.getStudents().get(0).getId().equals("A00355710"));
-		assertTrue(students.getStudents().get(0).getSemester().equals("5"));
-		assertTrue(students.getStudents().get(1).getName().equals("Manuel"));
-		assertTrue(students.getStudents().get(1).getLastName().equals("Balanta Quintero"));
-		assertTrue(students.getStudents().get(1).getTelephone().equals("3218746583"));
-		assertTrue(students.getStudents().get(1).getEmailAddres().equals("mbalantaq@gmail.com"));
-		assertTrue(students.getStudents().get(1).getId().equals("A00351728"));
+		assertTrue(students.getStudents().get(0).getName().equals("Alberto"));
+		assertTrue(students.getStudents().get(0).getLastName().equals("Alvarez"));
+		assertTrue(students.getStudents().get(0).getTelephone().equals("3155462882"));
+		assertTrue(students.getStudents().get(0).getEmailAddres(),students.getStudents().get(0).getEmailAddres().equals("asd"));
+		assertTrue(students.getStudents().get(0).getId().equals("asd"));
+		assertTrue(students.getStudents().get(0).getSemester().equals("ads"));
+		
+		assertTrue(students.getStudents().get(1).getName().equals("Alejandro"));
+		assertTrue(students.getStudents().get(1).getLastName().equals("Martinez Martinez"));
+		assertTrue(students.getStudents().get(1).getTelephone().equals("3112345674"));
+		assertTrue(students.getStudents().get(1).getEmailAddres().equals("alejomam2011@gmail.com"));
+		assertTrue(students.getStudents().get(1).getId().equals("A00354350"));
 		assertTrue(students.getStudents().get(1).getSemester().equals("5"));
-		assertTrue(students.getStudents().get(2).getName().equals("Juan Diego"));
-		assertTrue(students.getStudents().get(2).getLastName().equals("Naranjo Tafur"));
-		assertTrue(students.getStudents().get(2).getTelephone().equals("3145608074"));
-		assertTrue(students.getStudents().get(2).getEmailAddres().equals("juannaranjo1206@gmail.com"));
-		assertTrue(students.getStudents().get(2).getId().equals("A00351771"));
+		assertTrue(students.getStudents().get(2).getName().equals("Ana Maria"));
+		assertTrue(students.getStudents().get(2).getLastName().equals(" Muñoz Valencia"));
+		assertTrue(students.getStudents().get(2).getTelephone().equals("3017980082"));
+		assertTrue(students.getStudents().get(2).getEmailAddres().equals("cnscanamariamv@gmail.com"));
+		assertTrue(students.getStudents().get(2).getId().equals("A00352237"));
 		assertTrue(students.getStudents().get(2).getSemester().equals("5"));
-		assertTrue(students.getStudents().get(3).getName().equals("Mateo"));
-		assertTrue(students.getStudents().get(3).getLastName().equals("Ramirez Rodriguez"));
-		assertTrue(students.getStudents().get(3).getTelephone().equals("3174149631"));
-		assertTrue(students.getStudents().get(3).getEmailAddres().equals("mateoboom@hotmail.com"));
-		assertTrue(students.getStudents().get(3).getId().equals("A00351422"));
-		assertTrue(students.getStudents().get(3).getSemester().equals("5"));
+		assertTrue(students.getStudents().get(3).getName().equals("Carlos"));
+		assertTrue(students.getStudents().get(3).getLastName().equals("Perez"));
+		assertTrue(students.getStudents().get(3).getTelephone().equals("3155462882"));
+		assertTrue(students.getStudents().get(3).getEmailAddres().equals("carlos@vojabes.com"));
+		assertTrue(students.getStudents().get(3).getId().equals("A00356210"));
+		assertTrue(students.getStudents().get(3).getSemester().equals("6"));
 	}
 	
 	@Test
