@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 aombre,apellido,telefono,email,id,semestre,Photo,urlPhoto
 Ana,Narvaez,4214545,4,amnarvaez@hotmail.com,A00359508,https://i.ytimg.com/vi/M16nBoCZAM4/maxresdefault.jpg
 Jairo,Emilio,123456789,sads@gmail.com,12365789987,3,https://i.ytimg.com/vi/M16nBoCZAM4/maxresdefault.jpg
@@ -7,20 +6,3 @@ Juan,Hernandez,3155462882,5,juanher0825@gmail.com,1192766656,https://i.ytimg.com
 Juan,Lectamo,3155462882,5,juanito@vojabes.com,15648916,https://i.ytimg.com/vi/M16nBoCZAM4/maxresdefault.jpg
 Yummi,Vojabes,125616,6,yummi@vojabes.com,15654,https://i.ytimg.com/vi/M16nBoCZAM4/maxresdefault.jpg
 qwe,qwe,4546,drf,45,54,https://images.squarespace-cdn.com/content/56a5f5ef5827c35bf58e8e02/1517306531940-MSJ88JW0TQR1WNLNCZK5/Algo_Logo.jpeg?content-type=image%2Fjpeg
-=======
-Nombre, Apellido, Telefono, Email, Id, Semestre, Photo
-<<<<<<< HEAD
-Ana,Narvaez,4214545,amnarvaez@hotmail.com,A00359508,4,https://i.ytimg.com/vi/M16nBoCZAM4/maxresdefault.jpg
-Jorge,Martinez,3155462882,jorge@gmail.com,A00000000,7,https://i.ytimg.com/vi/M16nBoCZAM4/maxresdefault.jpg
-Juan,Hernandez,3155462882,juanher0825@gmail.com,1192766656,5,https://i.ytimg.com/vi/M16nBoCZAM4/maxresdefault.jpg
-Juan,Lectamo,3155462882,juanito@vojabes.com,15648916,5,https://i.ytimg.com/vi/M16nBoCZAM4/maxresdefault.jpg
-Yummi,Vojabes,125616,yummi@vojabes.com,15654,6,https://i.ytimg.com/vi/M16nBoCZAM4/maxresdefault.jpg
-=======
-Ana,Narvaez,4214545,A00359508,4,amnarvaez@hotmail.com,https://i.ytimg.com/vi/M16nBoCZAM4/maxresdefault.jpg
-Jairo,Emilio,123456789,3,sads@gmail.com,12365789987,https://i.ytimg.com/vi/M16nBoCZAM4/maxresdefault.jpg
-Jairo Emilio,Rodriguez,132456879,sdfdsaafdfasd,132456789,3,https://i.ytimg.com/vi/M16nBoCZAM4/maxresdefault.jpg
-Juan,Hernandez,3155462882,1192766656,5,juanher0825@gmail.com,https://i.ytimg.com/vi/M16nBoCZAM4/maxresdefault.jpg
-Juan,Lectamo,3155462882,15648916,5,juanito@vojabes.com,https://i.ytimg.com/vi/M16nBoCZAM4/maxresdefault.jpg
-Yummi,Vojabes,125616,15654,6,yummi@vojabes.com,https://i.ytimg.com/vi/M16nBoCZAM4/maxresdefault.jpg
->>>>>>> e29ddc9162fd5ba748904a974b9a5e1d7eb0e820
->>>>>>> 73174876390c7092ec8a007b80b7c4c7e5532d99
