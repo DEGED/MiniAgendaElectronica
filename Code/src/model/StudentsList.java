@@ -197,7 +197,7 @@ public class StudentsList {
 			String url = parts[6];
 			Image image = new Image(url);
 			
-			Student toAdd = new Student(parts[0], parts[1], parts[2], parts[3], parts[4], parts[5],image);
+			Student toAdd = new Student(parts[0], parts[1], parts[2], parts[4], parts[5], parts[3], image);
 			students.add(toAdd);
 			line = br.readLine();
 		}

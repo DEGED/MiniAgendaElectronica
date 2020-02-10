@@ -31,26 +31,26 @@ public class StudentController {
 	@FXML
 	private ResourceBundle resources;
 
-	@FXML
-	private TableView<Student> studentsTable;
+    @FXML
+    private TableView<Student> studentsTable;
 
-	@FXML
-	private TableColumn<Student, String> nameColum;
+    @FXML
+    private TableColumn<Student, String> nameColumn;
 
-	@FXML
-	private TableColumn<Student, String> lastNameColumn;
+    @FXML
+    private TableColumn<Student, String> lastNameColumn;
 
-	@FXML
-	private TableColumn<Student, String> telephoneColumn;
+    @FXML
+    private TableColumn<Student, String> telephoneColumn;
 
-	@FXML
-	private TableColumn<Student, String> semesterColumn;
+    @FXML
+    private TableColumn<Student, String> idColumn;
 
-	@FXML
-	private TableColumn<Student, String> emailColumn;
+    @FXML
+    private TableColumn<Student, String> semesterColumn;
 
-	@FXML
-	private TableColumn<Student, String> idColumn;
+    @FXML
+    private TableColumn<Student, String> emailColumn;
 
 	@FXML
 	private URL location;
@@ -58,8 +58,6 @@ public class StudentController {
 	@FXML
 	private TextField search;
 
-	@FXML
-	private Label students;
 
 	@FXML
 	void addStudent(MouseEvent event) {
@@ -102,7 +100,7 @@ public class StudentController {
 	void initialize() throws IOException {
 		studentList = new StudentsList();
 		studentList.loadStudentsFile();
-		nameColum.setCellValueFactory(new PropertyValueFactory<Student, String>("name"));
+		nameColumn.setCellValueFactory(new PropertyValueFactory<Student, String>("name"));
 		lastNameColumn.setCellValueFactory(new PropertyValueFactory<Student, String>("lastName"));
 		telephoneColumn.setCellValueFactory(new PropertyValueFactory<Student, String>("telephone"));
 		emailColumn.setCellValueFactory(new PropertyValueFactory<Student, String>("emailAddres"));
@@ -112,8 +110,8 @@ public class StudentController {
 		studentsTable.setItems(x);
 	}
 
-	public TableColumn<Student, String> getNameColum() {
-		return nameColum;
+	public TableColumn<Student, String> getNameColumn() {
+		return nameColumn;
 	}
 
 	public TableColumn<Student, String> getLastNameColumn() {

@@ -41,8 +41,8 @@ public class ShowStudentController {
     	
     }
     
-    protected void fill(String nameRecived, String lastNameRecived, String telephoneRecived, String idRecived, String semesterRecived, String emailAddresRecived,
-			Image photoRecived) {
+    protected void fill(String nameRecived, String lastNameRecived, String telephoneRecived, String idRecived, String semesterRecived,
+    		String emailAddresRecived, Image photoRecived) {
     	name.setText(nameRecived);
     	lastName.setText(lastNameRecived);
     	telephone.setText(telephoneRecived);
