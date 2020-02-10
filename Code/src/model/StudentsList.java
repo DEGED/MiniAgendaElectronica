@@ -189,7 +189,15 @@ public class StudentsList {
 		line = br.readLine();
 		while (line != null) {
 			String[] parts = line.split(",");
+<<<<<<< HEAD
 			Student toAdd = new Student(parts[0], parts[1], parts[2], parts[3], parts[4], parts[5], parts[6]);
+=======
+			
+			String url = parts[6];
+			Image image = new Image(url);
+			
+			Student toAdd = new Student(parts[0], parts[1], parts[2], parts[4], parts[5], parts[3], image);
+>>>>>>> 73174876390c7092ec8a007b80b7c4c7e5532d99
 			students.add(toAdd);
 			line = br.readLine();
 		}

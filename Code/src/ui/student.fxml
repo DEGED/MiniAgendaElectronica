@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="724.0" prefWidth="465.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.StudentController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="724.0" prefWidth="465.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.StudentController">
    <children>
       <ImageView fitHeight="748.0" fitWidth="486.0">
          <image>
@@ -28,14 +28,14 @@
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="740.0" prefWidth="782.0">
                <children>
-                  <TableView fx:id="studentsTable" onMouseClicked="#handleRowSelect" prefHeight="740.0" prefWidth="782.0">
+                  <TableView fx:id="studentsTable" layoutY="14.0" onMouseClicked="#handleRowSelect" prefHeight="740.0" prefWidth="876.0">
                     <columns>
-                      <TableColumn fx:id="nameColum" prefWidth="130.0" text="name" />
+                      <TableColumn fx:id="nameColumn" prefWidth="130.0" text="name" />
                       <TableColumn fx:id="lastNameColumn" prefWidth="130.0" text="last name" />
                         <TableColumn fx:id="telephoneColumn" minWidth="5.0" prefWidth="130.0" text="telephone" />
-                        <TableColumn fx:id="semesterColumn" minWidth="0.0" prefWidth="130.0" text="id" />
-                        <TableColumn fx:id="idColumn" minWidth="1.0" prefWidth="195.0" text="emailAddres" />
-                        <TableColumn fx:id="emailColumn" minWidth="0.0" prefWidth="75.0" text="semester" />
+                        <TableColumn fx:id="idColumn" minWidth="0.0" prefWidth="130.0" text="id" />
+                        <TableColumn fx:id="semesterColumn" minWidth="0.0" prefWidth="87.0" text="semester" />
+                        <TableColumn fx:id="emailColumn" minWidth="0.0" prefWidth="268.0" text="emailAddres" />
                     </columns>
                   </TableView>
                </children></AnchorPane>

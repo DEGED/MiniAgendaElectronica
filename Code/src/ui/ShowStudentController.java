@@ -43,6 +43,7 @@ public class ShowStudentController {
 	@FXML
 	private Label semester;
 
+<<<<<<< HEAD
 	@FXML
 	void initialize() {
 
@@ -62,4 +63,21 @@ public class ShowStudentController {
 		InputStream in = conn.getInputStream();
 		image.setImage(new Image(in));
 	}
+=======
+    @FXML
+    void initialize() {
+    	
+    }
+    
+    protected void fill(String nameRecived, String lastNameRecived, String telephoneRecived, String idRecived, String semesterRecived,
+    		String emailAddresRecived, Image photoRecived) {
+    	name.setText(nameRecived);
+    	lastName.setText(lastNameRecived);
+    	telephone.setText(telephoneRecived);
+    	email.setText(emailAddresRecived);
+    	id.setText(idRecived);
+    	semester.setText(semesterRecived);
+    	image.setImage(photoRecived);
+    }
+>>>>>>> 73174876390c7092ec8a007b80b7c4c7e5532d99
 }
