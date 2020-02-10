@@ -189,7 +189,7 @@ public class StudentsList {
 		line = br.readLine();
 		while (line != null) {
 			String[] parts = line.split(",");
-			Student toAdd = new Student(parts[0], parts[1], parts[2], parts[3], parts[4], parts[5], parts[6]);
+			Student toAdd = new Student(parts[0], parts[1], parts[2], parts[5], parts[3], parts[4], parts[6]);
 			students.add(toAdd);
 			line = br.readLine();
 		}

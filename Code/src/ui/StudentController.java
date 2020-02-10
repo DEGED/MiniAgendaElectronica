@@ -149,9 +149,9 @@ public class StudentController {
 					ShowStudentController temp = (ShowStudentController) loader.getController();
 					Student row = studentsTable.getSelectionModel().getSelectedItem();
 
-					temp.fill("Name: " + row.getName(), "Last name: " + row.getLastName(),
-							"Telephone: " + row.getTelephone(), "Id: " + row.getId(), "Semester: " + row.getSemester(),
-							"Email: " + row.getEmailAddres(), row.getUrlPhoto());
+					temp.fill("Nombre: " + row.getName(), "Apellido: " + row.getLastName(),
+							"Celular: " + row.getTelephone(), "Identificación: " + row.getId(), "Semestre: " + row.getSemester(),
+							"Correo: " + row.getEmailAddres(), row.getUrlPhoto());
 					
 					Scene s = new Scene(root);
 					Stage st = new Stage();
