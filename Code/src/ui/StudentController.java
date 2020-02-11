@@ -5,6 +5,9 @@ import model.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javax.swing.text.TabExpander;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -25,7 +28,14 @@ import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 
 public class StudentController {
-	private StudentsList studentList;
+	private static  StudentsList studentList;
+
+	
+	public static  StudentsList getStudentList() {
+		return studentList;
+	}
+
+	
 
 	@FXML
 	private ResourceBundle resources;
@@ -83,9 +93,9 @@ public class StudentController {
 	}
 
 	@FXML
-	void goToTheSubjects(MouseEvent event) {
+	void goToTheSubjects(MouseEvent event) throws IOException {
 		Parent root;
-		try {
+		
 			root = FXMLLoader.load(getClass().getResource("subject.fxml"));
 			Scene s = new Scene(root);
 			Stage st = new Stage();
@@ -93,8 +103,7 @@ public class StudentController {
 			st.setScene(s);
 			st.setResizable(false);
 			st.showAndWait();
-		} catch (IOException e) {
-		}
+		
 	}
 
 	public void showStudents() {
@@ -142,7 +151,10 @@ public class StudentController {
 	public void recibirscenecscasc(StudentsList b) {
 		studentList = b;
 	}
-
+	public  void  refresh() throws IOException {
+		studentsTable.getItems().clear();
+		initialize();
+	}
 	@FXML
 	void handleRowSelect(MouseEvent event) {
 		if (event.getClickCount() == 2) {
@@ -154,9 +166,9 @@ public class StudentController {
 					ShowStudentController temp = (ShowStudentController) loader.getController();
 					Student row = studentsTable.getSelectionModel().getSelectedItem();
 
-					temp.fill("Nombre: " + row.getName(), "Apellido: " + row.getLastName(),
-							"Celular: " + row.getTelephone(), "Identificación: " + row.getId(), "Semestre: " + row.getSemester(),
-							"Correo: " + row.getEmailAddres(), row.getUrlPhoto());
+					temp.fill( row.getName(), row.getLastName(),
+							row.getTelephone(), row.getId(),row.getSemester(),
+							row.getEmailAddres(), row.getUrlPhoto());
 					
 					Scene s = new Scene(root);
 					Stage st = new Stage();
