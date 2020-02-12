@@ -11,11 +11,15 @@ public class Main extends Application {
 	public static void main(String[] args) {
 		launch(args);
 	}
-
 	public void start(Stage stage) throws Exception {
-		Parent root = FXMLLoader.load(getClass().getResource("student.fxml"));
+		
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("student.fxml"));
+		Parent root = loader.load();
+		
+		StudentController sc = loader.getController();
+		sc.setStage(stage);
+		
 		Scene scene = new Scene(root);
-		stage.setTitle("Agenda Electronica");
 		stage.setScene(scene);
 		stage.show();
 	}

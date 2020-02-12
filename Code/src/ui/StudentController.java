@@ -4,12 +4,14 @@ import model.*;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javax.swing.text.TabExpander;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -30,13 +32,15 @@ import javafx.stage.Stage;
 public class StudentController {
 	private static  StudentsList studentList;
 
+	private static ArrayList<Course> subjectsList;
+	
+	private boolean flag = true;
+	
+	private static Stage stage;
 	
 	public static  StudentsList getStudentList() {
 		return studentList;
 	}
-
-	
-
 	@FXML
 	private ResourceBundle resources;
 
@@ -76,7 +80,6 @@ public class StudentController {
 		    stage.close();
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("createStudent.fxml"));
 			Parent root = loader.load();
-
 			CreateStudentController csc = (CreateStudentController) loader.getController();
 			csc.recibirscenescacsc(studentList);
 			Scene s = new Scene(root);
@@ -96,6 +99,7 @@ public class StudentController {
 	void goToTheSubjects(MouseEvent event) throws IOException {
 		Parent root;
 		
+		
 			root = FXMLLoader.load(getClass().getResource("subject.fxml"));
 			Scene s = new Scene(root);
 			Stage st = new Stage();
@@ -112,16 +116,23 @@ public class StudentController {
 
 	@FXML
 	void initialize() throws IOException {
-		studentList = new StudentsList();
-		studentList.loadStudentsFile();
-		nameColumn.setCellValueFactory(new PropertyValueFactory<Student, String>("name"));
-		lastNameColumn.setCellValueFactory(new PropertyValueFactory<Student, String>("lastName"));
-		telephoneColumn.setCellValueFactory(new PropertyValueFactory<Student, String>("telephone"));
-		emailColumn.setCellValueFactory(new PropertyValueFactory<Student, String>("emailAddres"));
-		idColumn.setCellValueFactory(new PropertyValueFactory<Student, String>("id"));
-		semesterColumn.setCellValueFactory(new PropertyValueFactory<Student, String>("semester"));
-		ObservableList<Student> x = FXCollections.observableArrayList(studentList.getStudents());
-		studentsTable.setItems(x);
+		if (flag) {
+			studentList = new StudentsList();
+			studentList.loadStudentsFile();
+			studentList.loadSubjectsFile();
+			System.out.println(studentList.getSubjects().get(0).getSubject());
+			nameColumn.setCellValueFactory(new PropertyValueFactory<Student, String>("name"));
+			lastNameColumn.setCellValueFactory(new PropertyValueFactory<Student, String>("lastName"));
+			telephoneColumn.setCellValueFactory(new PropertyValueFactory<Student, String>("telephone"));
+			emailColumn.setCellValueFactory(new PropertyValueFactory<Student, String>("emailAddres"));
+			idColumn.setCellValueFactory(new PropertyValueFactory<Student, String>("id"));
+			semesterColumn.setCellValueFactory(new PropertyValueFactory<Student, String>("semester"));
+			ObservableList<Student> x = FXCollections.observableArrayList(studentList.getStudents());
+			studentsTable.setItems(x);
+			flag = false;
+		}else if (flag==false) {
+			refresh();
+		}
 	}
 
 	public TableColumn<Student, String> getNameColumn() {
@@ -153,7 +164,14 @@ public class StudentController {
 	}
 	public  void  refresh() throws IOException {
 		studentsTable.getItems().clear();
-		initialize();
+		nameColumn.setCellValueFactory(new PropertyValueFactory<Student, String>("name"));
+		lastNameColumn.setCellValueFactory(new PropertyValueFactory<Student, String>("lastName"));
+		telephoneColumn.setCellValueFactory(new PropertyValueFactory<Student, String>("telephone"));
+		emailColumn.setCellValueFactory(new PropertyValueFactory<Student, String>("emailAddres"));
+		idColumn.setCellValueFactory(new PropertyValueFactory<Student, String>("id"));
+		semesterColumn.setCellValueFactory(new PropertyValueFactory<Student, String>("semester"));
+		ObservableList<Student> x = FXCollections.observableArrayList(studentList.getStudents());
+		studentsTable.setItems(x);
 	}
 	@FXML
 	void handleRowSelect(MouseEvent event) {
@@ -171,11 +189,20 @@ public class StudentController {
 							row.getEmailAddres(), row.getUrlPhoto());
 					
 					Scene s = new Scene(root);
+					stage.close();
 					Stage st = new Stage();
 					st.setTitle("Informacion del estudiante");
 					st.setScene(s);
 					st.setResizable(false);
+					temp.setStage(st);
+
 					st.showAndWait();
+				
+					
+					
+					
+					
+					
 				} catch (IOException e) {}
 			} catch (NullPointerException e) {
 				Alert alert = new Alert(AlertType.ERROR, "Por favor seleccione un estudiante", ButtonType.OK);
@@ -183,5 +210,35 @@ public class StudentController {
 				alert.show();
 			}
 		}
+	}
+	 @FXML
+	 void emailItemMenu(ActionEvent event) {
+
+	 }
+	 
+    @FXML
+    void lastNameItemMenu(ActionEvent event) {
+    	
+    }
+
+    @FXML
+    void nameItemMenu(ActionEvent event) {
+    	
+    }
+
+    @FXML
+    void telephoneItemMenu(ActionEvent event) {
+
+    }
+	public static Stage getStage() {
+		return stage;
+	}
+	
+	public void setStage(Stage stage) {
+		StudentController.stage = stage;
+	}
+
+	public static ArrayList<Course> getSubjectsList() {
+		return subjectsList;
 	}
 }

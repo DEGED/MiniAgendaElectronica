@@ -5,10 +5,10 @@ public class Course {
 	private String subject;
 	private String teacherName;
 	private String nrc;
-	private int credits;
-	private int studentsAmount;
+	private String credits;
+	private String studentsAmount;
 
-	public Course(String subject, String teacherName, String nrc, int credits, int studentsAmount) {
+	public Course(String subject, String teacherName, String nrc, String credits, String studentsAmount) {
 		super();
 		this.subject = subject;
 		this.teacherName = teacherName;
@@ -41,19 +41,23 @@ public class Course {
 		this.nrc = nrc;
 	}
 
-	public int getCredits() {
+	public String getCredits() {
 		return credits;
 	}
 
-	public void setCredits(int credits) {
+	public void setCredits(String credits) {
 		this.credits = credits;
 	}
-
-	public int getStudentsAmount() {
+	
+	public int getCreditsInt() {
+		return Integer.parseInt(credits);
+	}
+	public String getStudentsAmount() {
 		return studentsAmount;
 	}
 
-	public void setStudentsAmount(int studentsAmount) {
+
+	public void setStudentsAmount(String studentsAmount) {
 		this.studentsAmount = studentsAmount;
 	}
 }

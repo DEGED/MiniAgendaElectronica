@@ -11,12 +11,16 @@ import java.io.PrintWriter;
 public class StudentsList {
 
 	public static final String STUDENTS_ROUTE = "C:\\Users\\johan\\eclipse-workspace\\MiniAgendaElectronica\\Code/data/estudiantes.csv";
-	public static final String SUBJECTS_ROUTE = "data/materias.csv";
+	public static final String SUBJECTS_ROUTE = "C:\\Users\\johan\\eclipse-workspace\\MiniAgendaElectronica\\Code/data/materias.csv";
 
 	// RELATIONS
 	private ArrayList<Student> students;
 
 	private ArrayList<Course> subjects;
+
+	public ArrayList<Course> getSubjects() {
+		return subjects;
+	}
 
 	// COSTRUCTOR
 	public StudentsList() {
@@ -42,7 +46,7 @@ public class StudentsList {
 		for (int i = 0; i < students.size(); i++) {
 			Student actualStudent = students.get(i);
 			for (int j = 0; j < actualStudent.getCourses().size(); j++) {
-				total += actualStudent.getCourses().get(j).getCredits();
+				total += actualStudent.getCourses().get(j).getCreditsInt();
 			}
 		}
 		return total / totalStudents;
@@ -198,9 +202,15 @@ public class StudentsList {
 		line = br.readLine();
 		while (line != null) {
 			String[] parts = line.split(",");
-			Course toAdd = new Course(parts[0], parts[1], parts[2], Integer.parseInt(parts[3]),
-					Integer.parseInt(parts[4]));
+			String[] parts2 = parts[4].split(";");
+			Course toAdd = new Course(parts[0],parts[1],parts[2],parts[3],parts2[0]);
 			subjects.add(toAdd);
+			System.out.println(subjects.get(0).getSubject());
+			System.out.println(subjects.get(0).getTeacherName());
+			System.out.println(subjects.get(0).getnrc());
+			System.out.println(subjects.get(0).getCredits());
+			System.out.println(subjects.get(0).getStudentsAmount());
+
 			line = br.readLine();
 		}
 		fr.close();
@@ -238,4 +248,5 @@ public class StudentsList {
 		writting.print(tmp);
 		writting.close();
 	}
+	
 }
