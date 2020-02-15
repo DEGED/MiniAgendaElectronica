@@ -24,6 +24,8 @@ import model.Student;
 
 public class SubjectController {
 	
+	private static Stage stage;
+	
 	private ArrayList<Course> totalSubjects;
 	@FXML
 	private ResourceBundle resources;
@@ -55,15 +57,20 @@ public class SubjectController {
 
 	@FXML
 	void createSubject(MouseEvent event) {
-		Parent root;
 		try {
-			root = FXMLLoader.load(getClass().getResource("createSubject.fxml"));
+			
+			FXMLLoader loader  = new FXMLLoader(getClass().getResource("createSubject.fxml"));
+			Parent root = loader.load();
+			CreateSubjectController csc = loader.getController();
+			csc.recibirscenescacsc(StudentController.getStudentList());
 			Scene s = new Scene(root);
 			Stage st = new Stage();
+			stage.close();
+			csc.setStage(st);
 			st.setTitle("Agregar materia a la agenda");
 			st.setScene(s);
 			st.setResizable(false);
-			st.showAndWait();
+			st.show();
 		} catch (IOException e) {
 			
 		}
@@ -79,9 +86,10 @@ public class SubjectController {
 			st.setTitle("Estudiantes");
 			st.setScene(s);
 			st.setResizable(false);
-			st.showAndWait();
+			st.show();
+			
 		} catch (IOException e) {
-		}
+		} 
 	}
 	@FXML
     void reportAction(ActionEvent event) {
@@ -100,5 +108,13 @@ public class SubjectController {
 
 		tableSubjects.setItems(x);
 	
+	}
+
+	public static Stage getStage() {
+		return stage;
+	}
+
+	public void setStage(Stage stage) {
+		this.stage = stage;
 	}
 }

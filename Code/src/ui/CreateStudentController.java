@@ -23,6 +23,7 @@ import javafx.stage.Stage;
 
 public class CreateStudentController {
 	
+	private Stage stage;
 	//relations
 	private StudentsList student;
 	private StudentController sc;
@@ -134,25 +135,13 @@ public class CreateStudentController {
 							ButtonType.CLOSE);
 					alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
 					alert.show();
+					stage.close();
+
+					StudentController.getStage().show();
+
 					
-					
-					
-					
-					
-					
-					FXMLLoader loader = new FXMLLoader(getClass().getResource("student.fxml"));
-					Parent root = loader.load();
-					
-					Scene s = new Scene(root);
-					Stage st = new Stage();
-					st.setTitle("Agregar estudiante a la agenda");
-					st.setScene(s);
-					st.setResizable(false);
-					st.show();
-					
-					Node source = (Node) event.getSource();
-				    Stage stage = (Stage) source.getScene().getWindow();
-				    stage.close();
+				
+				
 					
 					
 				}catch (IOException e) {
@@ -171,5 +160,13 @@ public class CreateStudentController {
 	
 	public void recibirscenescacsc(StudentsList studentList) {
 		student = studentList;
+	}
+
+	public Stage getStage() {
+		return stage;
+	}
+
+	public void setStage(Stage stage) {
+		this.stage = stage;
 	}
 }

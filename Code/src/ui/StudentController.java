@@ -84,10 +84,11 @@ public class StudentController {
 			csc.recibirscenescacsc(studentList);
 			Scene s = new Scene(root);
 			Stage st = new Stage();
+			csc.setStage(stage);
 			st.setTitle("Agregar estudiante a la agenda");
 			st.setScene(s);
 			st.setResizable(false);
-			st.showAndWait();
+			st.show();
 			
 			
 		    
@@ -99,14 +100,16 @@ public class StudentController {
 	void goToTheSubjects(MouseEvent event) throws IOException {
 		Parent root;
 		
-		
-			root = FXMLLoader.load(getClass().getResource("subject.fxml"));
-			Scene s = new Scene(root);
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("subject.fxml"));
+		root = loader.load();
+		SubjectController sc = loader.getController();
+		Scene s = new Scene(root);
 			Stage st = new Stage();
+			sc.setStage(st);
 			st.setTitle("Materias");
 			st.setScene(s);
 			st.setResizable(false);
-			st.showAndWait();
+			st.show();
 		
 	}
 

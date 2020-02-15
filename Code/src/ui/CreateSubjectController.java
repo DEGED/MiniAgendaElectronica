@@ -1,17 +1,26 @@
 package ui;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Region;
+import javafx.stage.Stage;
+import model.StudentsList;
 
 public class CreateSubjectController {
 
+	private Stage stage;
+	private StudentsList student;
 	@FXML
 	private ResourceBundle resources;
 
@@ -31,7 +40,7 @@ public class CreateSubjectController {
 	private TextField credits;
 
 	@FXML
-	void done(MouseEvent event) {
+	void done(MouseEvent event) throws IOException {
 		if (name.getText().equals("") && teacher.getText().equals("") && nrc.getText().equals("")
 				&& credits.getText().equals("")) {
 			Alert alert = new Alert(AlertType.ERROR, "Debe ingresar algún valor", ButtonType.OK);
@@ -76,6 +85,20 @@ public class CreateSubjectController {
 				Alert alert = new Alert(AlertType.CONFIRMATION, "Se ha guardado la materia con exito", ButtonType.OK);
 				alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
 				alert.show();
+				StudentController.getStudentList().addSubjects(name.getText(), teacher.getText(), nrc.getText(), credits.getText(), "6");
+				stage.close();
+//				SubjectController.getStage().show();
+				Parent root;
+				
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("subject.fxml"));
+				root = loader.load();
+				Scene s = new Scene(root);
+				Stage st = new Stage();
+				st.setTitle("Materias");
+				st.setScene(s);
+				st.setResizable(false);
+				st.show();
+			
 			}
 		}
 	}
@@ -83,5 +106,16 @@ public class CreateSubjectController {
 	@FXML
 	void initialize() {
 
+	}
+	public void recibirscenescacsc(StudentsList studentList) {
+		student = studentList;
+	}
+
+	public Stage getStage() {
+		return stage;
+	}
+
+	public void setStage(Stage stage) {
+		this.stage = stage;
 	}
 }

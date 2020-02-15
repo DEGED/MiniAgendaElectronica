@@ -6,6 +6,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+
+import javax.security.auth.Subject;
+
 import java.io.PrintWriter;
 
 public class StudentsList {
@@ -234,19 +237,22 @@ public class StudentsList {
 	}
 
 	public void subjectsSave() throws FileNotFoundException {
-		PrintWriter writting = new PrintWriter(new File(STUDENTS_ROUTE));
-		String sep = "Nombre del curso, Profesor, Numero del grupo, nrc, creditos, numero de estudiantes" + "\n";
+		PrintWriter writting = new PrintWriter(new File(SUBJECTS_ROUTE));
+		String sep = "Nombre,profesor,nrc,credits,NoEstudiantes\r\n";
 		writting.print(sep);
 		String tmp = "";
 
-		for (int i = 0; i < students.size(); i++) {
-			tmp += students.get(i).getName() + "," + students.get(i).getLastName() + ","
-					+ students.get(i).getTelephone() + "," + students.get(i).getEmailAddres() + ","
-					+ students.get(i).getId() + "," + students.get(i).getSemester() + "," + "null" + "\n";
-
+		for (int i = 0; i < subjects.size(); i++) {
+			tmp += subjects.get(i).getSubject()+","+subjects.get(i).getTeacherName()+","+subjects.get(i).getnrc()+","+subjects.get(i).getCredits()+","+subjects.get(i).getStudentsAmount()+"\n";
+			System.out.println(subjects.get(i).getSubject());
 		}
 		writting.print(tmp);
 		writting.close();
 	}
+	public void addSubjects(String nombre, String profesores, String nrc, String credits, String noEstudiantes) throws FileNotFoundException {
+		Course newOne = new Course(nombre, profesores, nrc, credits, noEstudiantes);
+		subjects.add(newOne);
+		subjectsSave();
+		}
 	
 }
