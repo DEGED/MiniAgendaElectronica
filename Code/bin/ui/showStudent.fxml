@@ -14,7 +14,7 @@
             <Image url="@../../imgs/contacts.png" />
          </image>
       </ImageView>
-      <Button layoutX="135.0" layoutY="348.0" mnemonicParsing="false" onAction="#editarButton" text="Editar" />
+      <Button layoutX="107.0" layoutY="348.0" mnemonicParsing="false" onAction="#editarButton" text="Editar" />
       <TextField fx:id="name" editable="false" layoutX="136.0" layoutY="134.0" />
       <TextField fx:id="lastName" editable="false" layoutX="136.0" layoutY="169.0" />
       <TextField fx:id="telephone" editable="false" layoutX="136.0" layoutY="205.0" />
@@ -27,6 +27,7 @@
       <Label layoutX="88.0" layoutY="243.0" text="Email:" />
       <Label layoutX="99.0" layoutY="278.0" text="Id:" />
       <Label layoutX="69.0" layoutY="315.0" text="Semestre:" />
-      <Button layoutX="211.0" layoutY="348.0" mnemonicParsing="false" onAction="#guardarButton" text="Guardar" />
+      <Button layoutX="249.0" layoutY="348.0" mnemonicParsing="false" onAction="#guardarButton" text="Guardar" />
+      <Button layoutX="169.0" layoutY="348.0" mnemonicParsing="false" onAction="#maticularButtonAction" text="Matricular" />
    </children>
 </Pane>

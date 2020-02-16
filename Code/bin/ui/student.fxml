@@ -21,7 +21,7 @@
             <Font name="Calibri Bold" size="24.0" />
          </font>
       </Label>
-      <TextField fx:id="search" layoutX="32.0" layoutY="65.0" prefHeight="25.0" prefWidth="362.0" promptText="🔍 Buscar" />
+      <TextField fx:id="search" layoutX="32.0" layoutY="65.0" onKeyPressed="#searchAction" prefHeight="25.0" prefWidth="362.0" promptText="🔍 Buscar" />
       <ScrollPane layoutX="3.0" layoutY="110.0" prefHeight="529.0" prefWidth="461.0">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="740.0" prefWidth="782.0">

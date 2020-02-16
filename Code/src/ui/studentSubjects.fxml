@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="724.0" prefWidth="428.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.StudentSubjectsController">
+   <children>
+      <Label layoutX="32.0" layoutY="26.0" text="Materias del estudiante">
+         <font>
+            <Font name="Calibri Bold" size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="search" layoutX="32.0" layoutY="65.0" onKeyPressed="#searchSubjectAction" prefHeight="25.0" prefWidth="336.0" promptText="🔍 Buscar nrc" />
+      <ScrollPane layoutX="3.0" layoutY="110.0" prefHeight="536.0" prefWidth="422.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="533.0" prefWidth="420.0">
+               <children>
+                  <TableView fx:id="tableSubjects" prefHeight="536.0" prefWidth="706.0">
+                    <columns>
+                      <TableColumn fx:id="nameColumn" prefWidth="146.3999695777893" text="Nombre de la materia" />
+                      <TableColumn fx:id="profesorColumn" prefWidth="144.800048828125" text="Profesor de la materia" />
+                        <TableColumn fx:id="nrcColumn" text="NRC" />
+                        <TableColumn fx:id="creditosColumn" prefWidth="100.800048828125" text="Creditos" />
+                        <TableColumn fx:id="cantidadDeEstudiantesColumn" prefWidth="173.60000610351562" text="Cantiadad de estudiantes" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+      <Button layoutX="165.0" layoutY="666.0" mnemonicParsing="false" onAction="#matricularAction" text="Matricular" />
+   </children>
+</Pane>

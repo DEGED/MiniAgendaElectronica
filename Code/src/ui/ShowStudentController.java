@@ -67,7 +67,15 @@ public class ShowStudentController {
     	copyStudent = new Student(name.getText(), lastName.getText(), telephone.getText(), id.getText(), Semester.getText(), email.getText(), location.toString());
     }
 
-    @FXML
+    public Student getCopyStudent() {
+		return copyStudent;
+	}
+
+	public void setCopyStudent(Student copyStudent) {
+		this.copyStudent = copyStudent;
+	}
+
+	@FXML
     void guardarButton(ActionEvent event) throws IOException {
     	name.setEditable(true);
     	lastName.setEditable(true);
@@ -81,6 +89,27 @@ public class ShowStudentController {
 	    getStage().show();
 	    stage.close();    
     }
+    
+    @FXML
+    void maticularButtonAction(ActionEvent event) throws IOException {
+    	FXMLLoader loader  = new FXMLLoader(getClass().getResource("studentSubjects.fxml"));
+		Parent root = loader.load();
+		StudentSubjectsController csc = loader.getController();
+		Scene s = new Scene(root);
+		Stage st = new Stage();
+//		stage.close();
+		csc.setStudentsList(StudentController.getStudentList());
+		csc.setStage(st);
+
+		csc.setStudent(copyStudent);
+		csc.setStudentsList(StudentController.getStudentList());
+//		csc.setCourses(copyStudent.getCourses());
+		st.setTitle("Agregar materia a la agenda");
+		st.setScene(s);
+		st.setResizable(false);
+		st.show();
+    }
+    
     protected void fill(String nameRecived, String lastNameRecived, String telephoneRecived, String idRecived,
 		String semesterRecived, String emailAddresRecived, String UrlImage) throws IOException {
 		name.setText(nameRecived);
@@ -93,6 +122,7 @@ public class ShowStudentController {
 		URLConnection conn = url.openConnection();
 		InputStream in = conn.getInputStream();
 		image.setImage(new Image(in));
+		
 	}
   
     @FXML

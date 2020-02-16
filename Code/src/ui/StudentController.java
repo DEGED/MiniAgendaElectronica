@@ -25,11 +25,16 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
+import jdk.nashorn.internal.runtime.FindProperty;
 
 public class StudentController {
+	
+	private int typeOfSearch;
+	
 	private static  StudentsList studentList;
 
 	private static ArrayList<Course> subjectsList;
@@ -112,11 +117,54 @@ public class StudentController {
 			st.show();
 		
 	}
+	@FXML
+    void searchAction(KeyEvent event) throws IOException {
+		 try {
+			 
+		 
+		switch (event.getCode()) {
+		 case ENTER:
+			 	FXMLLoader loader = new FXMLLoader(getClass().getResource("showStudent.fxml"));
+				Parent root = loader.load();
 
-	public void showStudents() {
+				ShowStudentController temp = (ShowStudentController) loader.getController();
+				Student row ;
+				if(typeOfSearch==4) {
+					row = studentList.searchStudentByPhone(search.getText());
+					
+				}else if(typeOfSearch==2) {
+					row = studentList.searchStudentByLastName(search.getText());
+				}else if(typeOfSearch==3){
+					row = studentList.searchStudentByEmailAddres(search.getText());
+				}else  {
+					row = studentList.searchStudentByName(search.getText());
+				}
+				temp.fill( row.getName(), row.getLastName(),
+						row.getTelephone(), row.getId(),row.getSemester(),
+						row.getEmailAddres(), row.getUrlPhoto());
+				
+				Scene s = new Scene(root);
+				Stage st = new Stage();
+				st.setTitle("Informacion del estudiante");
+				st.setScene(s);
+				st.setResizable(false);
+				temp.setStage(st);
 
-	}
-
+				st.showAndWait();
+			 
+		 default:
+			break;
+		
+		 }
+		 
+		 }catch(Exception oe) {
+			 Alert alert = new Alert(AlertType.ERROR, "El estudiante buscado no existe o lo esta buscando incorrectamente", ButtonType.OK);
+				alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+				alert.show();
+		 }
+        	 
+         
+    }
 	@FXML
 	void initialize() throws IOException {
 		if (flag) {
@@ -132,6 +180,7 @@ public class StudentController {
 			semesterColumn.setCellValueFactory(new PropertyValueFactory<Student, String>("semester"));
 			ObservableList<Student> x = FXCollections.observableArrayList(studentList.getStudents());
 			studentsTable.setItems(x);
+			typeOfSearch = 1;
 			flag = false;
 		}else if (flag==false) {
 			refresh();
@@ -186,13 +235,14 @@ public class StudentController {
 
 					ShowStudentController temp = (ShowStudentController) loader.getController();
 					Student row = studentsTable.getSelectionModel().getSelectedItem();
-
+					System.out.println(row.getName());
+					temp.setCopyStudent(row);
 					temp.fill( row.getName(), row.getLastName(),
 							row.getTelephone(), row.getId(),row.getSemester(),
 							row.getEmailAddres(), row.getUrlPhoto());
 					
 					Scene s = new Scene(root);
-					stage.close();
+					
 					Stage st = new Stage();
 					st.setTitle("Informacion del estudiante");
 					st.setScene(s);
@@ -216,22 +266,22 @@ public class StudentController {
 	}
 	 @FXML
 	 void emailItemMenu(ActionEvent event) {
-
+		 typeOfSearch = 3;
 	 }
 	 
     @FXML
     void lastNameItemMenu(ActionEvent event) {
-    	
+    	typeOfSearch = 2;
     }
 
     @FXML
     void nameItemMenu(ActionEvent event) {
-    	
+    	typeOfSearch = 1;
     }
 
     @FXML
     void telephoneItemMenu(ActionEvent event) {
-
+    	typeOfSearch = 4;
     }
 	public static Stage getStage() {
 		return stage;

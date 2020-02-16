@@ -84,7 +84,13 @@ public class StudentsList {
 		return null;
 
 	}
-
+	public void addSubjectToAStudent(String name, Course newSubject) {
+		for (int i = 0; i < students.size(); i++) {
+			if(students.get(i).getName().equals(name)) {
+				students.get(i).getCourses().add(newSubject);
+			}
+		}
+	}
 	public Student searchStudentByPhone(String phone) {
 		if (containsStudent("phone", phone) == 1) {
 			for (int i = 0; i < students.size(); i++) {
@@ -114,7 +120,29 @@ public class StudentsList {
 		return null;
 
 	}
-
+	public int containsSubject(String criterion) {
+		int retu =-1;
+		for (int i = 0; i < subjects.size(); i++) {
+			if (subjects.get(i).getnrc().equals(criterion)) {
+				retu = 1;
+			}
+		}
+		
+		return retu;
+	}
+	public Course searchSubjectByNrc(String nrc) {
+		Course retu = null;
+		if(containsSubject(nrc)==1) {
+			for (int i = 0; i < subjects.size(); i++) {
+				if(subjects.get(i).getnrc().equals(nrc)){
+					retu =subjects.get(i);
+				}
+			}
+		}else {
+			throw new IllegalArgumentException("Unexpected value: ");
+		}
+		return retu;
+	}
 	public int containsStudent(String typeOfSearch, String criterion) {
 		
 		if (typeOfSearch.equals("Name")) {
